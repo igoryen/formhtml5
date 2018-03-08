@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <title>Progress Inspection</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://10.100.20.221:8282/NAS/Form/CSS/bootstrap/bootstrap.min.css">
+  <script src="http://10.100.20.221:8282/NAS/Form/js/angularJS/angular.min.js"></script>
+  <script src="http://10.100.20.221:8282/NAS/Form/js/angularJS/ng-flow-standalone.js"></script>
+  <script src="http://10.100.20.221:8282/NAS/Form/js/angularJS/util.js"></script>
+  <script src="http://10.100.20.221:8282/NAS/Form/js/angularJS/app.js"></script>
+  <script src="http://10.100.20.221:8282/NAS/Form/js/angularJS/appSign.js"></script>
+  <script src="http://10.100.20.221:8282/NAS/Form/js/angularJS/ConstructionStageController.js"></script>
+  <script src="http://10.100.20.221:8282/NAS/Form/js/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://10.100.20.221:8282/NAS/Form/js/bootstrap/bootstrap.min.js"></script>
+  <link href="http://10.100.20.221:8282/NAS/Form/CSS/style.css" rel="stylesheet"/>
+
+  <script>
+      
+  	var oFormFields;	
+  	var asRequiredField = [
+		"doc_number",
+		"appraiser_name"
+    ];
+	/*
+	{
+			"reference_number": "100156174",				
+			"file_number": "1415817",
+            "client_name": "Royal Bank of Canada",
+            "client_attention": "",
+            "client_address": "",
+            "client_city": "",
+            "client_province": "",
+            "client_postal_code": "", 
+            "client_phone": "",
+            "client_email": "",
+         	"appraiser_name": "", 
+         	"appraiser_company": "Craig Laine Realty Inc.", 
+         	"appraiser_address": "369 Eglinton Avenue West, 2nd Floor", 
+         	"appr_address1": "369 Eglinton Avenue East, 3rd Floor",
+         	"appraiser_city": "Toronto",
+      		"appraiser_province": "ON",
+      		"appraiser_postal_code": "M5N 1A3", 
+      		"appraiser_phone": "",
+      		"appraiser_email": "appraisertest@nationwideappraisals.com",	
+      		"linestatus": "Online",  
+      		"complete_flag": "0",
+      		"logonUsername": "craiglaine",
+      		"cred_id": "craiglaine",
+      		"server_url": "http://10.100.20.221:8282/",
+      		"form_ID": 91,
+      		"form_lang": "EN",
+      		"pi_subject_name": "Jack Chan",
+      		"pi_property_address": "235 FullY Test Rue",
+      		"pi_subj_city": "Montreal West",
+      		"pi_subj_province": "QC",
+      		"pi_subj_postal_code": "H4J 1T1", 
+	      	"pi_septic_installed": "",
+	        "pi_sanitary_installed": "",
+	        "pi_storm_installed": "",
+	        "pi_municipal_installed": "",
+	        "pi_well_installed": "",
+	        "pi_curb_installed": "",
+	        "pi_paved_installed": "",
+	        "pi_sidewalk_installed": "",
+	        "pi_construction_type": "",
+	        "pi_occupied": "",
+	        "pi_compliance": "",
+	};
+	*/
+	
+	//Get the parameter value by parameter name which is passed through this html call.
+    function getQueryVariable(variable) {
+	  	var query = window.location.search.substring(1);
+	  	var vars = query.split("&");
+	  	for (var i=0;i<vars.length;i++) {
+	  	    var pair = vars[i].split("=");
+	  	    if (pair[0] == variable) {
+	  	      return pair[1];
+	  	    }
+  	    } 
+//  	    console.log('Query Variable ' + variable + ' not found');
+  	}	
+	
+	function addConstructionStageFields(oFormFields) {
+		var len = 22;
+		var list = ["construction_stage_title", "construction_stage_allowed", "construction_stage_complete", "construction_stage_total_complete"];
+		
+		for(var i=0; i < list.length; i++) {
+			getConstructionStrageField(len, list[i], oFormFields);
+		}
+
+//		console.log(JSON.stringify(oFormFields));		
+	}
+	
+	function getConstructionStrageField(len, name, oFormFields) {
+		for(var i=0; i<len; i++) {
+			var newKey = "";
+
+			newKey = name + "_" + pad(i+1, 2);
+
+			oFormFields[newKey] = "";
+		}
+	}
+	
+	function initForm(oFormFields) {	
+//		console.log(JSON.stringify(oFormFields));	
+   		testIt();
+		for(var key in oFormFields) {
+			if(oFormFields[key] != "") {
+				//app.alert(oFormFields[key]);
+				var sField = key;
+				var sVal = oFormFields[key];
+				document.getElementById(sField).value = sVal;
+			}
+		}
+	}
+	
+	function createXML(process) {
+		<!--alert("Hello Joseph!");-->
+		if(process == "complete") {
+			document.getElementById("complete_flag").value = "1";			
+//			alert("Your PDF report has been created!");
+		} else if(process == "save") {
+			document.getElementById("complete_flag").value = "0";
+//			alert("Your form data has been saved!");
+		}
+				
+    	var asFields = Object.keys(oFormFields);
+   		
+		var xmlStr = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><form1><subform>";
+   			    	
+   		xmlStr = getFinalXMLStr(xmlStr, asFields);
+   		
+	   	console.log(xmlStr);
+		
+		return xmlStr;
+									
+	}
+
+		
+	function getFinalXMLStr(str, list) {
+		var sRet = str;
+		for(var i=0; i<list.length; i++) {
+			var sField = list[i];
+			var sVal = ""; 
+			if(document.getElementById(sField).type == "radio" ) {	
+				sVal = getRadioElementValue(sField);
+			} else if (document.getElementById(sField).type == "checkbox") {
+				sVal = getCheckboxElementValue(sField);
+			} else {
+				sVal = document.getElementById(sField).value;
+			}
+
+			sRet = sRet + (
+							isEmpty(sVal)
+								? ("<" + sField + "/>")
+								:(("<" + sField + ">")+sVal.replace("&", "and")+("</" + sField + ">"))
+						  ) 
+		}
+		sRet = sRet + "</subform></form1>";
+		return sRet;
+	}
+	
+</script>
+<script>  
+
+	$(document).ready(function(){
+
+	    $("#completeBtn").click(function(){
+	    	if(validateFormField(asRequiredField)) {
+		        $.post("http://10.100.20.221:8282/NAS/servlet/com.visionmax.servlet.CommandServlet?command=submitform&isGuide=Yes&process=complete",
+		        {xmlData: createXML("complete")},
+		        function(data,status){
+	//	            console.log("Data: " + data + "\nStatus: " + status);
+					alert("Your PDF report has been created in " + status + "!");
+		        });	
+	    	} else {
+		    		console.log(document.getElementById("appraiser_signature").value);
+	    			alert("Please fill the required field!");
+		    }
+
+	    });
+	    $("#saveBtn").click(function(){
+	        $.post("http://10.100.20.221:8282/NAS/servlet/com.visionmax.servlet.CommandServlet?command=submitform&isGuide=Yes&process=save",
+	        {xmlData: createXML("save")},
+	        function(data,status){
+//	            console.log("Data: " + data + "\nStatus: " + status);
+				alert("Your form data has been saved in " + status + "!")
+	        });	        
+	    });	
+	    
+		$.get("http://10.100.20.221:8282/NAS/GetJSONFromDB?appReqNum="+getQueryVariable("appReqNum"), function(data, status){
+			var obj = JSON.parse(data);
+			initForm(obj);
+			oFormFields = obj;
+			console.log(JSON.stringify(oFormFields));
+//			addConstructionStageFields(oFormFields);
+		});		    
+	   		
+	});		
+</script>
+<style type="text/css">
+table, td  {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+}
+#consturctionStage tr:nth-child(even){
+		background-color: #f1f1f1;
+}
+.labelForInput {
+    background:rgba(0,0,0,0);
+    border:none;
+    width:350px;
+    display:block;
+}
+</style> 
+
+</head>
+
+
+<body ng-app="myApp" flow-init flow-prevent-drop>
+<div class="container">
+  <span>
+	  <p>
+		  <font size="5">Progress Inspection</font>&nbsp;&nbsp;&nbsp;
+		  <button id="saveBtn"><font size="2">Save</font></button>
+		  <button id="completeBtn"><font size="2">Complete</font></button>
+	  </p>	
+
+  </span>
+  <br>
+  <ul class="nav nav-pills">
+    <li class="active"><a data-toggle="pill" href="#home">HOME</a></li>
+    <li><a data-toggle="pill" href="#menu1">CLIENT</a></li>
+    <li><a data-toggle="pill" href="#menu2">APPRAISER</a></li>
+    <li><a data-toggle="pill" href="#menu3">PROPERTY</a></li>
+    <li><a data-toggle="pill" href="#menu4">SERVICES</a></li>
+    <li><a data-toggle="pill" href="#menu5">CONSTRUCTION STAGE</a></li>    
+    <li><a data-toggle="pill" href="#menu6">COST</a></li>  
+    <li><a data-toggle="pill" href="#menu7">CERTIFICATION</a></li>    
+  </ul>
+  
+  <div class="tab-content">
+	<div id="home" class="tab-pane fade in active">
+    	<br>
+		<h4>Client Reference No.:</h4>
+		<input type="text" id="reference_number"  style="width: 536px; ">
+		<h4>Progress Inspection No.:</h4>
+		<input type="text" id="pi_number" style="width: 536px; ">	
+		<h4>File No.:</h4>
+		<input type="text" id="doc_number" style="width: 536px; ">	
+		<h4>NAS No.:</h4>
+		<input type="text" id="file_number" style="width: 270px; ">	
+		<br><br>
+  		
+  		<!-- The following section are for hidden fields -->
+		<input type="hidden" id="linestatus" value=""/>  	
+		<input type="hidden" id="complete_flag" value=""/> 
+		<input type="hidden" id="logonUsername" value=""/> 
+		<input type="hidden" id="cred_id" value=""/> 
+		<input type="hidden" id="server_url" value=""/> 
+		<input type="hidden" id="form_ID" value=""/> 
+		<input type="hidden" id="form_lang" value=""/> 
+		<input type="hidden" id="app_password2" value="31035aaca4"/>	
+		<input type="hidden" id="super_password2" value="31035aaca4"/>
+  		
+	</div>  
+    <div id="menu1" class="tab-pane fade">
+    	<br>
+		<h4>Client:</h4>
+		<input type="text" id="client_name" style="width: 536px; ">
+		<h4>Attention:</h4>
+		<input type="text" id="client_attention" style="width: 536px; ">	
+		<h4>Address:</h4>
+		<input type="text" id="client_address" style="width: 536px; ">	
+		<h4>City:</h4>
+		<input type="text" id="client_city" style="width: 270px; ">	
+		<h4>Province:</h4>
+		<input type="text" id="client_province" style="width: 270px; ">	
+		<h4>Postal Code:</h4>
+		<input type="text" id="client_postal_code" style="width: 270px; ">	
+		<h4>Phone:</h4>
+		<input type="text" id="client_phone" pstyle="width: 240px; ">	
+		<h4>Email:</h4>
+		<input type="text" id="client_email" style="width: 500px; ">									
+    </div>
+    <div id="menu2" class="tab-pane fade">
+    	<br>
+		<h4>Appraiser:</h4>
+		<input type="text" id="appraiser_name" style="width: 536px; ">
+		<h4>Company:</h4>
+		<input type="text" id="appraiser_company" style="width: 536px; ">	
+		<h4>Address Line1:</h4>
+		<input type="text" id="appraiser_address" style="width: 536px; ">	
+		<h4>Address Line2:</h4>
+		<input type="text" id="appr_address1" style="width: 536px; ">			
+		<h4>City:</h4>
+		<input type="text" id="appraiser_city" style="width: 270px; ">	
+		<h4>Province:</h4>
+		<input type="text" id="appraiser_province" style="width: 270px; ">	
+		<h4>Postal Code:</h4>
+		<input type="text" id="appraiser_postal_code" style="width: 270px; ">	
+		<h4>Phone:</h4>
+		<input type="text" id="appraiser_phone" style="width: 240px; ">	
+		<h4>Email:</h4>
+		<input type="text" id="appraiser_email" style="width: 500px; ">	
+    </div>
+    <div id="menu3" class="tab-pane fade">
+    	<br>
+		<h4>Applicant's Name:</h4>
+		<input type="text" id="pi_subject_name" style="width: 536px; ">
+		<h4>Property Address:</h4>
+		<input type="text" id="pi_property_address" style="width: 536px; ">	
+		<h4>City:</h4>
+		<input type="text" id="pi_subj_city" style="width: 536px; ">	
+		<h4>Province:</h4>
+		<input type="text" id="pi_subj_province" style="width: 536px; ">			
+		<h4>Postal Code:</h4>
+		<input type="text" id="pi_subj_postal_code" style="width: 270px; ">	
+        <br>
+        <h4>Property Type:</h4>
+	    <input type="radio" name="pi_construction_type" id="pi_construction_type" value="Renovation / Improvements" checked> Renovation/Improvements<br>
+	    <input type="radio" name="pi_construction_type" id="pi_construction_type" value="New Construction"> New Constructionr<br>        
+        <br>
+        <h4>Occupied:</h4>         
+        <input type = "radio"
+        	   name = "pi_occupied"
+               id = "pi_occupied"
+               value = "Yes"
+               checked = "checked" />
+        <label for = "sizeYes">Yes</label>        
+        <input type = "radio"
+               name = "pi_occupied"
+               id = "pi_occupied"
+               value = "No" />
+        <label for = "sizeNo">No</label>        
+    </div>
+    <div id="menu4" class="tab-pane fade">
+      <br>
+      <h4>Completed:</h4>       
+	  <input type="checkbox" id="pi_septic_installed" value="1"> Septic<br>
+	  <input type="checkbox" id="pi_sanitary_installed" value="1"> Sanitary Sewer<br>
+	  <input type="checkbox" id="pi_storm_installed" value="1"> Storm Sewer<br>
+	  <input type="checkbox" id="pi_municipal_installed" value="1"> Municipal Water<br>
+	  <input type="checkbox" id="pi_well_installed" value="1"> Well<br>
+	  <input type="checkbox" id="pi_curb_installed" value="1"> Curb and Gutter<br>
+	  <input type="checkbox" id="pi_paved_installed" value="1"> Paved Road<br>
+	  <input type="checkbox" id="pi_sidewalk_installed" value="1"> Sidewalk<br>
+    </div>
+    <div id="menu5" class="tab-pane fade">
+		<div  ng-controller="constructionStageCtrl"> 
+		<br>
+		<!--  
+		<input type="hidden" id="constructionStageLen" value="{{constructionStage.length}}">   	
+		-->	
+		<table id="consturctionStage">
+			<thead>
+				<tr>
+					<td>CONSTRUCTION STAGE</td>
+					<td>ALLOWED</td>
+					<td>COMPLETED</td>
+					<td>TOTAL COMPLETED</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="x in constructionStage">
+				  <td><input id="construction_stage_title_{{$index+1 | numberFixedLen:2}}" width="100px" type="text" class="labelForInput" disabled ng-readonly="true" ng-model="x.StageDesc" /></td>
+				  <td><input id="construction_stage_allowed_{{$index+1 | numberFixedLen:2}}" type=number ng-model="x.Allowed"/></td>
+				  <td><input id="construction_stage_complete_{{$index+1 | numberFixedLen:2}}" type=number ng-model="x.Completed "/></td>
+				  <td><input id="construction_stage_total_complete_{{$index+1 | numberFixedLen:2}}" type=number ng-model="x.TotalCompleted"/></td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td>Total</td>
+					<td>{{constructionStage | sumOfValue:'Allowed'}}</td>
+					<td colspan="2"></td>
+				</tr>
+			</tfoot>
+		</table>
+		
+		</div>
+    </div>    
+    <div id="menu6" class="tab-pane fade">
+      <h4>COMPLIANCE: </h4>
+      <p>The following schedule applies to advance draws provided that construction is proceeding as per plans, specifications, and costs remain unchanged from the original appraisalreport. </p>
+      <input type = "radio"
+             name = "pi_compliance"
+             id = "pi_compliance"
+             value = "Yes"
+             checked = "checked" />
+      <label for = "sizeYes">Yes</label>        
+      <input type = "radio"
+             name = "pi_compliance"
+             id = "pi_compliance"
+             value = "No" />
+      <label for = "sizeNo">No</label>        
+    </div>
+    <div id="menu7" class="tab-pane fade" >
+		<div class="container" >
+			<hr class="soften"/>
+			<div class="signature-container">
+		 		<div class="signature-wrapper"  ng-controller="appraiserSignature" 
+		 			flow-init
+			      	flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]"
+			      	flow-files-submitted="$flow.upload()"
+		 			flow-file-added="someHandlerMethod($file, $event, $flow)">
+					<h4>Appraiser Signature	</h4>
+			 		<div id='appraiserSignature' class="digital-signature" ng-hide="$flow.files.length" 
+				       flow-drop flow-drag-enter="style={border:'4px solid green'}" flow-drag-leave="style={}" ng-style="style">
+				    	<img id="appraiserImage" src="http://10.100.20.221:8282/NAS/Form/images/sign-here-image.jpg" />
+				  	</div>
+				  	<div class="digital-signature" flow-drop ng-show="$flow.files.length"
+				  		flow-drag-enter="style={border:'4px solid green'}" flow-drag-leave="style={}" ng-style="style">
+				    	<img style="max-height:100%" flow-img="$flow.files[0]" />
+				        <input id="appraiser_signature" name = "appraiser_signature" type="hidden" ng-value="imageStringB64"/>					    	
+				  	</div>
+				  	<div>
+					    <a href="#" class="btn" ng-hide="$flow.files.length" flow-btn flow-attrs="{accept:'image/*'}">Select image</a>
+					    <a href="#" class="btn" ng-show="$flow.files.length" flow-btn flow-attrs="{accept:'image/*'}">Change</a>
+					    <a href="#" class="btn btn-danger" ng-show="$flow.files.length"
+					       ng-click="$flow.cancel()">
+					      Remove
+				    	</a>
+					</div>
+				  	<p>Only PNG,GIF,JPG files allowed.</p>
+			  	</div>
+		  		<div class="signature-wrapper"  ng-controller="appraiserSignature"
+		 			flow-init
+			      	flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]"
+			      	flow-files-submitted="$flow.upload()"
+		 			flow-file-added="someHandlerMethod($file, $event, $flow)">
+				  	<h4>Supervisor Signature</h4>
+				    <div id='supervisorSignature' class="digital-signature" ng-hide="$flow.files.length" 
+				         flow-drop flow-drag-enter="style={border:'4px solid green'}" flow-drag-leave="style={}" ng-style="style">
+				      <img id="supervisorImage" src="http://10.100.20.221:8282/NAS/Form/images/sign-here-image.jpg" />
+				    </div>
+				    <div class="digital-signature" flow-drop ng-show="$flow.files.length"
+				    	flow-drag-enter="style={border:'4px solid green'}" flow-drag-leave="style={}" ng-style="style">
+				      <img style="max-height:100%" flow-img="$flow.files[0]" />
+				      <input id="supervisor_signature" name = "supervisor_signature" type="hidden" ng-value="imageStringB64"/>
+				    </div>
+				    <div>
+				      <a href="#" class="btn" ng-hide="$flow.files.length" flow-btn flow-attrs="{accept:'image/*'}">Select image</a>
+				      <a href="#" class="btn" ng-show="$flow.files.length" flow-btn flow-attrs="{accept:'image/*'}">Change</a>
+				      <a href="#" class="btn btn-danger" ng-show="$flow.files.length"
+				         ng-click="$flow.cancel()">
+				        Remove
+				      </a>
+				    </div>
+				    <p>
+				      Only PNG,GIF,JPG files allowed.<br>
+				    </p>
+			  	</div>
+			</div>  
+		</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

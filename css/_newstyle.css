@@ -1,0 +1,125 @@
+.formColumn
+{
+	width:370px; 
+	display:block; 
+	float:left;
+	text-align: left;	
+}
+.formDoubleColumn
+{
+	width:400px; 
+	display:block; 
+	float:left;
+	text-align: left;
+}
+
+/* Form Elements */
+.inputstyle[type="text"], select, textarea
+{	
+	/* background-color: #FFF; 
+	background-image: url(/NAS/Themes/gradient.gif);
+	background-repeat: repeat-x;
+	background-position: top;	
+	*/
+	border: 1px solid #999;
+	vertical-align: top;
+	margin-left: 10px;
+	line-height: 10px;
+	font-size: 14px;
+	width: 280px;
+}
+.inputstyle[type="text"][disabled] {
+   /*	
+   background-color: #E0E0E0; 
+   background-image: none;
+   */
+}
+.inputstyle1[type="text"]
+{	
+	/* background-color: #FFF; 
+	background-image: url(/NAS/Themes/gradient.gif);
+	background-repeat: repeat-x;
+	background-position: top;	
+	*/
+	border: 0px;
+	vertical-align: top;
+	margin-left: 10px;
+	line-height: 10px;
+	font-size: 14px;
+	width: 280px;
+}
+/* For dotted underlined input box */
+.inputstyle2[type="text"]
+{
+	border: 0;
+	border-bottom: 1px dotted black;
+	outline: 0;
+}
+/* For input text box inside of table cell */
+.inputstyle3[type="text"], button
+{
+    height:33px; 
+    width: 100%; 
+    display:block;"	
+}
+.inputStyleRadio[type="radio"]
+{
+ 	margin: 0 10px 0 10px;
+}
+.fieldstyle
+{
+	padding: 10px;
+	margin: 0 0 0 0;
+/*	background-image: url(/NAS/Themes/fieldset_background.png); */
+	background-color: /* #f7f7f7; */ white;
+	background-repeat: repeat-x;
+	background-position: top;
+    border-width: 2px;
+    border-style: groove;
+    border-color: threedface;
+    border-image: initial;	
+}
+.legendstyle
+{
+	font-size: 100%;
+	font-weight: bold;
+	background-image: url(/NAS/Themes/legend_background.png); 	
+	background-repeat: repeat-x;
+	background-position: top;
+	color: #fff;
+	width: 100%;
+	height: 24px;
+	text-transform: uppercase;
+	padding-top: 2px;
+	margin-bottom: 0px !important;
+}
+.labelstyle
+{
+	font-weight: bold;
+	font-size: 90%;
+	text-transform: uppercase;
+	margin-left: 20px;
+	float: left;
+	width: 100%;
+	margin-top: 2px;
+	font-size: 14px;
+}
+.fixedWidthLabel
+{
+	width:200px;
+}
+.fixedWidthText1
+{
+	width:400px;
+}
+.largeButton
+{
+	width: 200px;
+	height: 26px;
+	background-image: url(/NAS/Themes/button_large.png);
+	border: none;
+	cursor: pointer;
+	color: #fff;
+}
+
+	

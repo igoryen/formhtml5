@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Signature Test</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.3.3.js"></script>
+	<script src="../js/angularJS/ng-flow-standalone.js"></script>
+	<script src="https://cdn.rawgit.com/szimek/signature_pad/master/signature_pad.js"></script>
+	<script src="https://cdn.rawgit.com/ecentinela/ng-signature-pad/master/dist/ng-signature-pad.js"></script>
+    <script src="../js/angularJS/app.js"></script>
+    <script src="../js/angularJS/appSign.js"></script>
+    <script src="../js/angularJS/appSigPad.js"></script>
+    <script src="../js/angularJS/datePicker.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+	<!-- <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"/> -->
+	<link href="../css/style.css" rel="stylesheet"/>
+	<style>
+		/* a[ng-click]{
+		    cursor: pointer;
+		} */
+	</style>
+</head>
+<body ng-app="myApp" resize flow-prevent-drop>
+<div class="container" >
+	<h1>flow image example</h1>
+	<hr class="soften"/>
+	<div class="signature-container">
+		<div class=signature-uplaod" ng-hide="true">
+	 		<div class="signature-wrapper"  ng-controller="appraiserSignature"
+	 			flow-init
+		      	flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]"
+		      	flow-files-submitted="$flow.upload()"
+	 			flow-file-added="someHandlerMethod($file, $event, $flow)">
+				<h4>Appraiser Signature	</h4>
+		 		<div class="digital-signature" id='appraiserSignature' ng-hide="$flow.files.length" 
+			       flow-drop flow-drag-enter="style={border:'4px solid green'}" flow-drag-leave="style={}" ng-style="style">
+			    	<img id="appraiserImage" src="../image/sign-here-image.jpg"/>
+			  	</div>
+			  	<div class="digital-signature" flow-drop ng-show="$flow.files.length"
+			  		flow-drag-enter="style={border:'4px solid green'}" flow-drag-leave="style={}" ng-style="style">
+			    	<img style="max-height:100%" flow-img="$flow.files[0]" />
+			    	<input type=hidden ng-bind="imageString">
+			  	</div>
+			  	<div>
+				    <a href="#" class="btn" ng-hide="$flow.files.length" flow-btn flow-attrs="{accept:'image/*'}">Select image</a>
+				    <a href="#" class="btn" ng-show="$flow.files.length" flow-btn flow-attrs="{accept:'image/*'}">Change</a>
+				    <a href="#" class="btn btn-danger" ng-show="$flow.files.length"
+				       ng-click="$flow.cancel()">
+				      Remove
+			    	</a>
+				</div>
+			  	<p>Only PNG,GIF,JPG files allowed.</p>
+		  	</div>
+	  		<div class="signature-wrapper" ng-controller="appraiserSignature"
+	 			flow-init
+		      	flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]"
+		      	flow-files-submitted="$flow.upload()"
+	 			flow-file-added="someHandlerMethod($file, $event, $flow)">
+			  	<h4>Supervisor Signature</h4>
+			    <div id='supervisorSignature' class="digital-signature" ng-hide="$flow.files.length" 
+			         flow-drop flow-drag-enter="style={border:'4px solid green'}" flow-drag-leave="style={}" ng-style="style">
+			      <img id="supervisorImage" src="../image/sign-here-image.jpg" />
+			    </div>
+			    <div class="digital-signature" flow-drop ng-show="$flow.files.length"
+			    	flow-drag-enter="style={border:'4px solid green'}" flow-drag-leave="style={}" ng-style="style">
+			      <img style="max-height:100%" flow-img="$flow.files[0]" />
+				  <input type=hidden ng-bind="imageString">
+			    </div>
+			    <div>
+			      <a href="#" class="btn" ng-hide="$flow.files.length" flow-btn flow-attrs="{accept:'image/*'}">Select image</a>
+			      <a href="#" class="btn" ng-show="$flow.files.length" flow-btn flow-attrs="{accept:'image/*'}">Change</a>
+			      <a href="#" class="btn btn-danger" ng-show="$flow.files.length"
+			         ng-click="$flow.cancel()">
+			        Remove
+			      </a>
+			    </div>
+			    <p>
+			      Only PNG,GIF,JPG files allowed.<br>
+			    </p>
+		  	</div>
+		</div>
+	  	<div id="signature-pad" class="m-signature-pad break signature-wrapper" ng-controller="sig-pad">
+	  		<div class="m-signature-pad--body">
+				<canvas redraw ng-signature-pad="signature"></canvas>
+				<input id="scr-appraiser-sig" name="scr-appraiser-sig" type="hidden" ng-value="signature.toDataURL()"/>
+	  		</div>
+  			<div class="m-signature-pad--footer">
+				<div class="description">Sign above</div>
+				<!-- <button type="button" class="button clear" data-action="clear">Clear</button> -->
+				<!-- <button type="button" class="button save" data-action="save">Save</button>  --> 			
+				<a class="btn clear" ng-click="clear()">Clear</a>
+				<a class="btn save" ng-click="sendData($event)">Sign</a>
+				<p>Signature Result: {{signatureResult.result}}</p>
+  			</div>
+	  	</div>
+	</div>
+	<div ng-controller="datePickerController">
+          <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+          </span>
+    </div>          	
+</div>
+</body>
+</html>

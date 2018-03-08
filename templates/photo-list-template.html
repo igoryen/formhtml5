@@ -1,0 +1,45 @@
+<fieldset class="fieldstyle {{fieldsetClass}}" ng-disabled="isAppraiserSigned()">
+<!-- 	<strong>This is the Template</strong>
+	<span>List Data:</span><br>
+	<pre>{{listData | json}}</pre>
+	<span>MainController</span><br>
+	<pre>{{MainController | json}}</pre> -->
+	<legend class="legendstyle" ng-click="toggleElement('photoSubject', $event)">&nbsp;-&nbsp;PHOTO</legend>
+   	<div ng-hide="oToggleElementList['photoSubject']" class="photos-container {{containerClass}}">
+ 		<div class="photo-wrapper" ng-repeat="photo in listData.photos"  ng-controller="photosController" 
+ 			ng-class="{'pointer': !isAppraiserSigned(), 'no-pointer': isAppraiserSigned()}" 
+ 			flow-init="{ query: getFlowQuery }"
+	      	flow-file-added="(!isAppraiserSigned() || !photoLoadingDone) && isPhotoSizeValid($file.size) && !!{png:1,jpg:1,jpeg:1}[$file.getExtension()]"
+	      	flow-files-submitted="doUpload()"
+ 			flow-file-added="someHandlerMethod($file, $event, $flow)">
+			<h4 class='photo-title'>{{photo.title}}</h4>
+	 		<div class="property-photo {{photoClass}}" ng-hide="isImageAvailable()" flow-drop
+		        flow-drag-enter="isAppraiserSigned()?style={}:style={border:'4px solid green'}" flow-drag-leave="style={}" ng-style="style"
+		        flow-btn flow-attrs="{accept:'image/*'}" >
+		        <div class="drag-drop-photo">
+		        </div>
+		    	<div class='drag-drop-lbl'>
+		    		<span>{{listData.labels.dragAndDropLbl1}}</span>
+		    		<span>{{listData.labels.dragAndDropLbl2}}</span>
+		    	</div>
+		  	</div>
+		  	<div class="property-photo {{photoClass}}" flow-drop ng-show="isImageAvailable()" 
+		  		flow-drag-enter="isAppraiserSigned()?style={}:style={border:'4px solid green'}" flow-drag-leave="style={}" ng-style="style">
+		    	<img id="{{ photo.fieldName }}_image" style="max-height:100%" ng-src='{{ getImageURI() }}' />
+		        <input id="{{ photo.fieldName }}" name = "{{ photo.fieldName }}" ng-hide="true" type="text" ng-model="imagesModel[ photo.fieldName ]" load-photo force-model-update/>
+		        {{ photo.fieldName }}
+		        <br>
+		  	</div>
+		  	<div>
+			    <a href="javascript:void(0);" class="btn" ng-hide="isImageAvailable()" flow-btn flow-attrs="{accept:'image/*'}">{{listData.labels.selectImageLbl}}</a>
+			    <a href="javascript:void(0);" class="btn" ng-show="isImageAvailable()" flow-btn flow-attrs="{accept:'image/*'}">{{listData.labels.changeImageLbl}}</a>
+			    <a href="javascript:void(0);" class="btn btn-danger" ng-show="isImageAvailable()"
+			       ng-click="removeFile()">{{listData.labels.removeImageLbl}}</a>
+			</div>
+			<div ng-if= "imagesDescribeModel" class='photo-description'>
+			  	<label class='description-lbl' for='{{photo.imageDescribeField}}'>{{listData.labels.descriptionLbl}}</label>
+			  	<input class='description' id='{{photo.imageDescribeField}}' name='{{photo.imageDescribeField}}' type="text" ng-model="imagesDescribeModel[photo.imageDescribeField]" ng-required="isImageAvailable()" force-model-update/>
+			</div>
+	  	</div>
+	</div>
+</fieldset>

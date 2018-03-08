@@ -1,0 +1,78 @@
+<html>
+<body>
+	<div class="modal-header">
+		<h3 class="modal-title">Digital Signature: {{sigType}}</h3>
+	</div>
+	<div class="modal-body">
+		<div class="form-horizontal keystore" role="form"
+			ng-show="sigType=='certificate'">
+			<div class='form-group form-group-sm' id='appraiser-signature-type'>
+				<label for='keystore-type' class="col-xs-3 control-label">{{keystoreTypeLbl}}</label>
+				<div class="col-xs-7">
+					<select id='keystore-type' name='keystore-type' ng-model='signatureData.keystoreType' class='form-control'>
+						<option value='pkcs12'>PKCS12</option>
+						<option value='jks'>JKS</option>
+						<option value='bks'>BKS</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group form-group-sm">
+				<label for='keystore-file' class="col-xs-3 control-label">{{keystoreFileLbl}}</label>
+				<!-- the following HTML uses non standard way to associate an function to a change event in angula scope but not recommended -->
+				<!-- <input type='file' id='keystore-file' name='keystore-file' ng-model='keystoreFile' onchange="angular.element(this).scope().setFiles(this)"> -->
+				<!-- the following HTML is for future reference. This to show how to link the file input element to ng-model using custom directive data-ng-model 
+					 see related appSigPad.js -->
+				<!-- <input type='file' id='keystore-file' name='keystore-file' bind-file='keystoreFile' data-ng-model='someVariable' > -->
+				<div class="col-xs-7">
+					<input type='file' id='keystore-file' name='keystore-file' bind-file='signatureData' class='form-control'>
+					<input id='keystore-file-name' name='keystore-file-name' type="text" ng-hide='true' ng-value='signatureData.keystoreFile.name'>
+					<input id='keystore-file-data' name='keystore-file-data' ng-hide='true' ng-value='signatureData.keystoreFileData'>
+				</div>
+			</div>
+			<div class="form-group form-group-sm">
+				<label class='col-xs-3 control-label' for='keystore-password'>{{keystorePasswordLbl}}</label>
+				<div class="col-xs-7">
+					<input id='keystore-password' name='keystore-password' type='password' class='form-control' ng-model='signatureData.keystorePassword'>
+				</div>
+			</div>
+			<div class="form-group form-group-sm">
+				<label class='col-xs-3 control-label' for='keystore-reason'>{{reasonLbl}}</label>
+				<div class="col-xs-7">
+					<input id='keystore-reason' name='keystore-reason' type='text' class='form-control' ng-model='signatureData.reason'>
+				</div>
+				<br>
+			</div>
+			<div class="form-group form-group-sm">
+				<label class='col-xs-3 control-label' for='keystore-location'>{{locationLbl}}</label>
+				<div class="col-xs-7">
+					<input id='keystore-location' name='keystore-location' type='text' class='form-control' ng-model='signatureData.location'>
+				</div>
+			</div>
+			<div class="form-group form-group-sm">
+				<label class='col-xs-3 control-label' for='keystore-contact-info'>{{contactInfoLbl}}</label>
+				<div class="col-xs-7">
+					<input id='keystore-contact-info' name='keystore-contact-info' type='text' class='form-control' ng-model='signatureData.contactInfo'>
+				</div>
+			</div>
+		</div>
+		<div class="form-horizontal signature-password" role="form"
+			ng-show="sigType=='scribble'">
+			<div class='form-group form-group-sm'>
+				<!-- <fieldset ng-disabled="false">
+					<label class='col-xs-3 control-label' for="app_password1"><%=appraiserPasswordLbl%></label>
+					<label class='col-xs-3 control-label' for="signaturePassword1">{{signaturePasswordLbl}}</label>
+					<div class="col-xs-7">
+						<input type="password" id="signaturePassword1" name="app_password1" class='form-control' ng-enter="doBlur(event)"
+							ng-blur="password1Exit()" ng-model="password1" ng-init="password1Exit()" />
+						<input type="password" id="app_password2" name="app_password2" ng-model="password2" ng-hide="true" />
+					</div>
+				</fieldset> -->
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-primary" type="button" ng-click="accept()">Accept</button>
+		<button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+	</div>
+</body>	
+</html>

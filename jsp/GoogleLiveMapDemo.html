@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<style>
+	       #map {
+	        height: 800px;
+	        width: 1000px;
+	       }
+		</style>
+		<script src="/NAS/formhtml5/js/jquery/1.12.4/jquery-1.12.4.js"></script>
+		<script src="/NAS/formhtml5/js/other/html2canvas.js"></script>	
+				
+	</head>
+	
+	<body>
+		<h3>My Google Maps Demo</h3>
+		<div id="map" ></div>
+		<input id="locationmap_image" name = "locationmap_image" type="hidden" value=""/>
+		
+		<script>
+
+		  //var mapUrl = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBHqPxbJdpzpYXTdjeXIVKlpn8zdzwPnCs&callback=initMap";
+			
+		  //convertImgToDataURLviaCanvas(mapUrl, "map");	
+		  
+		  console.log("1");	
+		  
+		  saveMapToDataUrl();
+
+		  function initMap() {
+			var uluru = {lat: -25.363, lng: 131.044};
+			var map = new google.maps.Map(document.getElementById('map'), {
+			  zoom: 4,
+			  center: uluru
+			});
+			var marker = new google.maps.Marker({
+			  position: uluru,
+			  map: map
+			});
+		  }
+
+	  		 
+		 //New get image function.
+		function saveMapToDataUrl() {
+			var dataUrl; 
+			var element = document.getElementById('map');			
+
+			html2canvas(element, {
+				useCORS: true,
+				onrendered: function(canvas) {
+					dataUrl= canvas.toDataURL("image/png");
+					
+					//var mapData = dataUrl.replace(/^data:image\/(png|jpg);base64,/, ""); 
+					
+					console.log("dataUrl: " + dataUrl);
+					
+//					$("#locationmap_image").val(mapData);					
+					
+				}
+			});
+
+
+		}
+
+		</script>
+		
+		
+		
+		<script async defer
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHqPxbJdpzpYXTdjeXIVKlpn8zdzwPnCs&callback=initMap">
+		</script>
+		
+		
+
+	</body>
+	
+</html>

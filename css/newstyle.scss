@@ -1,0 +1,3043 @@
+// @import url('http://fonts.googleapis.com/css?family=Open+Sans+Condensed');
+// @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,300);
+// =========================================================
+//           GENERAL STYLES
+// =========================================================
+
+
+    $label-font: 'PT Sans Narrow', sans-serif;
+
+    // $pdf-input-color: #ebf5fb;
+    $pdf-input-color: #dee5ff;
+
+    #title_area::before {
+        content: "1920px";
+        color: red;
+        font-size: 20px;
+    }
+
+    fieldset {
+        /*  background-image: url(/NAS/Themes/fieldset_background.png); */
+        background-color: /* #f7f7f7; */ white;
+        background-position: top;
+        background-repeat: repeat-x;
+        border-color: threedface;
+        border-image: initial; 
+        border-style: groove;
+        border-width: 2px;
+        margin: 0 0 0 0;
+        padding: 10px;
+
+        legend {
+            background-image: url(/NAS/Themes/legend_background.png);   
+            background-position: top;
+            background-repeat: repeat-x;
+            color: #fff;
+            font-size: 100%;
+            font-weight: bold;
+            height: 24px;
+            margin-bottom: 0px !important;
+            padding-top: 2px;
+            text-transform: uppercase;
+            width: 100%;
+        }
+    }
+
+    label {
+
+        font-family: $label-font;
+        font-weight: normal;
+        margin-bottom: 0;
+        margin-right: 10px; 
+        margin-top: 2px;
+        text-transform: uppercase;
+        white-space: nowrap;
+
+        &.lower-case {
+            text-transform: lowercase;
+        }
+        &.capitalized {
+            text-transform: capitalize;
+        }
+        span {
+            &.capitalized {
+                font-family: $label-font;
+                text-transform: capitalize;
+            }
+        }
+    }
+    
+    textarea {
+        line-height: 1.5em;
+        margin-top: 1em;
+        width: 100%;
+        margin-bottom: 1em;
+        // .wall-to-wall {
+        //     width: 100%;
+        // }
+    }
+
+    input, select {
+        margin-bottom: 5px;
+    }
+
+    img[src*="popcalendar"] {
+        margin-left: 5px;
+        height: 1.5em;
+    }
+
+    // to look like PDF forms
+    input[type="text"], select, textarea {
+        background-color: $pdf-input-color;
+        border: 1px solid $pdf-input-color;
+        // font-weight: bold;
+        // font-family: $label-font;
+
+        &:hover {
+            border: solid 1px black;
+        }
+        &:focus {
+            background-color: #fff;
+            border: solid 1px $pdf-input-color;
+        }
+    }
+
+
+
+    .reportSectionGroup {
+        border: 0px;
+        display: flex;
+        width: 100%; 
+
+        fieldset {
+            border-color: threedface;
+            border-image: initial;
+            border-style: groove;
+            border-width: 2px;
+            border: 0 5px 0 0;
+            flex-grow: 1;
+            // border:0;
+            // order: 1;
+            // vertical-align: top; 
+            // width: 50%;
+
+        }
+        
+    }
+
+
+    .reportSection {
+
+        .report-section-columns-group {
+            display: flex;
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+
+            & > div:first-of-type {
+                border-right: 1px solid black;
+            }
+            & > div:nth-child(2) {
+                margin-left: 1em;
+                // border-left: 1px solid black;
+
+            }
+            // & > div:nth-child(3) {
+            //     border-left: 1px solid black;
+            // }
+
+            .report-section-column {
+                flex-grow: 1;
+                &.aligned {
+                    label {
+                        min-width: 10em;
+                    }
+                    select {
+                        width: 100%;
+                    }
+
+                }
+            }
+        }
+
+        .form-row, .grouped {
+            // margin: 2px 0;
+        }
+        .form-row, .note, .rowsOfInputsGroup-container, .rowsOfInputsGroup {
+            margin-left: 0.5em;
+        }
+        .form-row {
+            margin-right: 1em;
+            // width: 100%; 
+            display: block; 
+            // float:left;
+            text-align: left; 
+            display: flex;
+            // white-space: nowrap;
+
+            input {
+                // width: 100%;
+                padding-left: 8px;
+                &[id="file_number"] {
+                    outline: none; 
+                    background-color: rgb(239,240,241); 
+                    width: 100px; 
+                    text-align: center;
+                }
+            }
+
+            input[type="radio"], input[type="checkbox"] {
+                max-width: 3%;
+                // margin-left: 2%;
+                // margin-bottom: 5px;
+            }
+
+
+            .inputsGrouped {
+                flex-grow: 1;
+                display: flex;
+                width: 100%;
+                &.wrapping {
+                    label {
+                        text-transform: capitalize; /* add labels to all the click-inputs and then use this setting on the label*/
+                    }
+                    flex-wrap: wrap;
+                    justify-content: flex-start;
+                }
+                input {
+                    flex-grow: 1;
+                    margin-right: 3px;
+                    margin-left: 1em;
+                    &[id^="mls_district"] {
+                        width: 15%;
+                    }
+                }
+                
+            }
+            
+            
+
+
+
+            &.aligned {
+                label {
+                    &:first-of-type {
+                        min-width: 10em;
+                        margin-right: 0.5em;
+                    }
+                    text-transform: capitalize;
+                    margin-right: 1em;
+                    input {
+                        margin-right: 3px;
+                    }
+                }
+                
+                // input {
+                //     max-width: 20px;
+                //     margin-left: 0;
+                // }
+            }
+
+            
+        }
+        .grouped {
+
+            display: flex;
+            // width: 46%;
+            // background-color: yellow;
+            // padding: 1em;
+            .form-row {
+                margin-right: 1em;
+                text-align: left;
+                flex-grow: 1;
+                // width: 25%;
+                input, select {
+                    width: 100%;
+                }
+                input {
+                    &[type="radio"], &[type="checkbox"] {
+                        width: 3%;
+                        margin-left: 1em;
+                    }
+                    &.first {
+                        margin-left: 0;
+                        margin-right: 5px;
+                    }
+                    &.fee {
+
+                    }
+                }
+
+                // select {
+                //     &.propertyType {
+                //         width: 45%;
+                //     }
+                // }
+                label, input {
+                    white-space: nowrap;
+                    flex-grow: 1;
+                }
+
+                &.city {
+                    // width: 45%;
+                    // flex-grow: 1;
+                    input {
+                        width: 100%;
+                    }
+                }
+                &.province {
+                    // width: 17%;
+                    // max-width: 23%;
+                    // flex-grow: 1;
+                    select {
+                        width: 3em;
+                    }
+                }
+                &.postalcode {
+                    // width: 25%;
+                    // flex-grow: 1;
+                    input {
+                        width: 5em;
+                    }
+                    white-space: nowrap;
+                }
+                &.phone {
+                    // flex-grow: 1;
+                    // max-width: 33%;
+                }
+                
+            }
+        }
+
+        
+        //================================================================================================================================
+        // newer version of form-row 
+        .form-row {
+            display: flex;
+            margin-left: 0;
+            // margin-bottom: 5px;
+
+            > div:first-of-type {
+                margin-left: 0;
+            }
+
+            .input-text, .input-binary {
+                
+                margin-left: 10px;
+                // &.first {
+                //     margin-left: 0;
+                // }
+
+                
+                input {
+                    width: 100%;
+                }
+                
+                
+
+                
+            }
+
+            
+
+            .input-text, .inputs-group {
+                flex-grow: 1;
+                display: flex;
+
+                label {
+                    // white-space: normal;
+                    &.no-wrap {
+                        text-transform: normal;
+                    }
+                }
+                input{
+                    flex-grow: 1;
+
+                }
+                div {
+                    display: flex;
+                }
+
+            }
+            // .input-text {
+            //     // select {
+            //     //     flex-grow: 1;
+            //     // }
+            //     label {
+            //         white-space: unset;
+            //     }
+            // }
+            .input-binary {
+                // margin-left: 10px;
+                // &.first {
+                //     margin-left: 0;
+                // }
+                input {
+                    margin-right: 8px;
+                }
+                
+            }
+            .inputs-group {
+                // flex-grow: 1;
+                // display: flex;
+            }
+        }
+
+    }
+    .formDoubleColumn
+    {
+        width:400px; 
+        display:block; 
+        float:left;
+        text-align: left;
+    }
+
+    /* Form Elements */
+    select, textarea { 
+        /* background-color: #FFF; 
+        background-image: url(/NAS/Themes/gradient.gif);
+        background-repeat: repeat-x;
+        background-position: top; 
+        */
+        // border: 1px solid #999;
+
+       
+        // vertical-align: top;
+        // margin-left: 10px;
+        // line-height: 10px;
+        // font-size: 14px;
+
+        // width: 280px;
+
+    }
+    .inputstyle[type="text"][disabled] {
+    /* 
+    background-color: #E0E0E0; 
+    background-image: none;
+    */
+    }
+    // .inputstyle1[type="text"] { 
+    //     /* background-color: #FFF; 
+    //     background-image: url(/NAS/Themes/gradient.gif);
+    //     background-repeat: repeat-x;
+    //     background-position: top; 
+    //     */
+    //     background-color: $pdf-input-color;
+    //     border: 1px solid $pdf-input-color;
+    //     font-weight: bold;
+    //     vertical-align: top;
+    //     margin-left: 10px;
+    //     line-height: 10px;
+    //     font-size: 14px;
+    //     width: 280px;
+    // }
+    /* For dotted underlined input box */
+    .inputstyle2[type="text"]
+    {
+        border: 0;
+        border-bottom: 1px dotted black;
+        outline: 0;
+    }
+    /* For input text box inside of table cell */
+    .inputstyle3[type="text"]
+    {
+        height:33px; 
+        width: 100%; 
+        display:block;
+    }
+    // .inputStyleRadio[type="radio"]
+    // {
+    //     margin: 0 10px 0 10px;
+    // }
+    .fieldstyle
+    {
+        // padding: 10px;
+        // margin: 0 0 0 0;
+        // /*  background-image: url(/NAS/Themes/fieldset_background.png); */
+        // background-color: /* #f7f7f7; */ white;
+        // background-repeat: repeat-x;
+        // background-position: top;
+        // border-width: 2px;
+        // border-style: groove;
+        // border-color: threedface;
+        // border-image: initial;  
+    }
+    .legendstyle
+    {
+        // font-size: 100%;
+        // font-weight: bold;
+        // background-image: url(/NAS/Themes/legend_background.png);   
+        // background-repeat: repeat-x;
+        // background-position: top;
+        // color: #fff;
+        // width: 100%;
+        // height: 24px;
+        // text-transform: uppercase;
+        // padding-top: 2px;
+        // margin-bottom: 0px !important;
+    }
+
+    .fixedWidthLabel
+    {
+        width:200px;
+    }
+    .fixedWidthText1
+    {
+        width:400px;
+    }
+    .largeButton
+    {
+        width: 200px;
+        height: 26px;
+        background-image: url(/NAS/Themes/button_large.png);
+        border: none;
+        cursor: pointer;
+        color: #fff;
+    }
+
+
+    .dateInput {
+        max-width: 8em;
+    }
+    .yearInput {
+        max-width: 5em;
+    }
+    .costInput {
+        max-width: 10em;
+    }
+    .note {
+        font-size: 10px;
+        font-weight: bold;
+        font-style: italic;
+    }
+    .length-units {
+        max-width: 8em;
+    }
+    .other-long {
+        max-width: 14em;
+    }
+    
+
+    // input[type="text"] {
+    //     width: 100%;
+    // }
+
+// =========================================================
+//           TITLE AREA
+// =========================================================
+    #title_area {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 1em;
+        
+        // for debugging
+        // position: fixed;
+        background: white;
+        opacity: 0.9;
+
+        div {
+            flex-grow: 1;
+            
+            
+            &:nth-child(2) {
+                margin: 1em 0;
+                font-size: 14px;
+            }
+            &:nth-child(3) {
+                margin-left: 2em;
+                margin-right: 2em;
+            }
+        }
+
+        .control-icon {
+            img {
+                width: 4em;    
+            }
+        }
+    }
+    
+// =========================================================
+//           TAB 1 - PROPERTY INFO
+// =========================================================
+    // GENERAL
+    #hidden_client_field {
+        border: 0px;
+        background-color: #fff;
+    }
+    // #assessment_date {
+    //     margin-right: 5px;
+    // }
+
+    // CLIENT & APPRAISER
+    #client {
+        div:nth-child(5) {
+            .input-text {
+                flex-grow: 1;
+            }
+        }
+    } 
+
+    #appraiser {
+        div:nth-child(6) {
+            .input-text {
+                flex-grow: 1;
+            }
+        }
+    }  
+
+    #client, #appraiser, #property {
+        .form-row {
+            .input-text {
+                &.province {
+                    flex-grow: 0;
+                    select, input {
+                        width: 4em;
+                    }
+                }
+                &.postal-code {
+                    flex-grow: 0;
+                    input {
+                        width: 6em;
+                    }
+                }
+            } 
+        }
+    }
+
+    #property {
+        > div:nth-child(4), > div:nth-child(5) {
+            .inputs-group {
+                // background-color: yellow;
+                label {
+                    text-transform: capitalize;
+                }
+            }
+        }
+        > div:nth-child(6) {
+            .input-binary{
+                label {
+                    span {
+                        text-transform: lowercase;
+                    }
+                }
+            }
+        }
+        > div:nth-child(7) {
+            .input-binary{
+                // background-color: yellow;
+                label {
+                    text-transform: capitalize;
+                }
+            }
+        }
+        > div:nth-child(8) {
+            label {
+                span {
+                    text-transform: lowercase;
+                }
+            }
+            .input-binary {
+                label {
+                    text-transform: capitalize;
+                }
+            }
+        }
+        > div:nth-child(9) {
+            > div:last-child {
+                label {
+                    text-transform: lowercase;
+                }   
+            }
+        }
+        > div:nth-child(10) {
+            .input-text, .input-binary {
+                label {
+                    text-transform: capitalize;
+                }
+            }
+            > div:first-of-type {
+                label {
+                    text-transform: uppercase;
+                }   
+            }
+        }
+        > div:nth-child(12) {
+            > div:nth-child(2) {
+                label {
+                    span {
+                        text-transform: lowercase;
+                    }
+                }
+            }
+        }
+        > div:nth-child(13) {
+            .input-text {
+                label {
+                    text-transform: capitalize;
+                }
+            }
+            > div:first-of-type {
+                label {
+                    text-transform: uppercase;
+                }
+            }
+        }
+        .date {
+            flex-grow: 0;
+            input {
+                width: 7em;
+            }
+        }
+        .year {
+            flex-grow: 0;
+            input, select {
+                width: 5em;
+            }
+        }
+        .money {
+            flex-grow: 0;
+            input {
+                width: 15em;
+            }
+        }
+        div:nth-child(10) {
+            .input-text {
+                flex-grow: 0;
+            }
+        }
+    }
+
+    #property_rights_appraised {
+        width: 10em;
+    }
+
+// =========================================================
+//           TAB 2 - NEIGHBORHOOD & SITE IMPROVEMENTS
+// =========================================================
+    .report-section-column {
+        margin-top: 5px;
+    }
+
+    #neighbourhood {
+
+        .report-section-columns-group {
+            #column1 {
+                .form-row {
+                    label:first-of-type {
+                        width: 7em;
+                        min-width: 7em;
+                    }
+                    
+                    // shorten "other" so that the following text input is wider
+                    // div:nth-last-child(2) {
+                    //     width: 4em;
+                    // }
+                    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                    .input-binary {
+                        width: 5.6em;
+                        // background-color: wheat;
+                        label {
+                            text-transform: capitalize;
+                        }
+                    }
+                    div:last-child {
+                        
+                        display: flex;
+                        width: 100%;
+                        
+                        .input-binary {
+                            // background-color: yellow;
+                        }
+                    }
+                    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                    .inputs-group {
+                        // flex-wrap: wrap;
+                        // .input-binary {
+                        //     // width: 5.6em;
+                        //     // background-color: red;
+                        //     label {
+                        //         // background-color: yellow;
+                        //         text-transform: capitalize;
+                        //     }
+                        // }
+                        div:last-child {
+                            display: flex;
+                            width: 100%;
+                            .input-binary {
+                                width: 4em;
+                            }
+                        }
+                    }
+                }
+            
+
+            }
+            
+            #column2 { 
+                // background-color: yellow;
+                // first child, i.e. the first 'div form-row', not any further descendants, 
+                > div:first-of-type {
+                    // background-color: red;
+                    .input-text {
+                        input {
+                            width: 3em;
+                        }
+                    }
+                    // second input-text
+                    div:nth-child(2) {
+                        // background-color: blue;
+                        label {
+                            text-transform: lowercase;
+                        }
+                        input {
+                            margin-right: 10px;
+                            
+                        }
+                    }
+                }
+                .money {
+                    input {
+                        width: 10em;
+                    }
+                }
+            }
+            // column 2
+            > div:nth-child(2) {
+                // row 3
+                > div:nth-child(3) {
+                    .input-binary {
+                        label {
+                            text-transform: capitalize;
+                        }
+                    }
+                }
+                // row 4
+                > div:nth-child(4) {
+                    > div:nth-child(3) {
+                        // background-color: yellow;
+                        label {
+                            text-transform: lowercase;
+                        }
+                    }
+                }
+                // row 5
+                >div:nth-child(5) {
+                    .input-binary {
+                        label {
+                            text-transform: capitalize;
+                        }
+                    }
+                }
+            }
+        }
+
+        > div:nth-child(3) {
+            label {
+                text-transform: capitalize;
+            }
+        }
+        
+        .rowsOfInputsGroup-container {
+            
+            margin-left: 0;
+            display: flex;
+
+            input,.inputs-row-label, .rowsOfInputsGroup {
+                flex-grow: 1;
+            }
+            .rowsOfInputsGroup, .inputs-grouped {
+                flex-grow: 1;
+                // display: flex;
+
+                // .inputs-row {
+                //     flex-grow: 1;
+                //     display: flex; 
+                // }
+                // .inputs-row-label {
+                //     flex-grow: 1;
+                // }
+                // .inputsGrouped {
+                //     flex-grow: 1;
+                //     display: flex; 
+                // }
+            }
+            .inputs-row {
+                display: flex;
+                label:first-of-type {
+                    width: 3.3em;
+                }
+                .input-binary {
+                    margin-left: 10px;
+                    width: 4.2em;
+                    label {
+                        text-transform: capitalize;
+                    }
+                    input {
+                        margin-right: 8px;
+                    }
+                }
+            }
+            .rowsOfInputsGroup, .inputs-grouped {
+                width: 100%;
+            }
+            .inputs-grouped {
+                margin-left: 2%;
+            }
+            .inputs-row-label {
+                width: 40px;
+            }
+        }
+        // the last child in the #neighbourhood, not the last child of every child in the #neighbourhood
+        > div:last-child {
+            flex-wrap: wrap;
+        }
+    }
+
+    #site {
+        // first group of columns
+        > div:nth-child(1) {
+            // background-color: yellow;
+        // .report-section-columns-group {
+            .report-section-column {
+                width: 48%;
+            }
+            // background-color: yellow;
+            // column 1
+            & > div:first-of-type {
+                // background-color: wheat;
+                // row 1
+                & > div:first-of-type {
+                    // background-color: pink;
+                    .input-text {
+                        flex-grow: 0;
+                        input {
+                            // border: 1px solid green;
+                            width: 6em;
+                        }
+                    }
+                    .inputs-group {
+                        .input-binary {
+                            label {
+                                text-transform: capitalize;
+                            }
+                        }
+                    }
+                }
+                // row 6
+                > div:nth-child(6) {
+                    // background-color: yellow;
+                    select {
+                        width: 15em;
+                    }
+                }
+                > div:nth-child(7) {
+                    .inputs-group {
+                        .input-binary {
+                            label {
+                                text-transform: capitalize;
+                            }
+                        }
+                    }
+
+                }
+                > div:nth-child(8) {
+                    .input-binary {
+                        label {
+                            text-transform: capitalize;
+                        }
+                    }
+
+                }
+            }
+            // column 2
+            & > div:nth-child(2) {
+                // background-color: yellow;
+                // width: 48%;
+                .form-row {
+                    // only the first <label>
+                    > label {
+                        // background-color: yellow;
+                        width: 6.2em;
+                    }
+                    .inputs-group {
+                        width: 100%;
+                        flex-wrap: wrap;
+                        .input-binary {
+                            label {
+                                // background-color: yellow;
+                                text-transform: capitalize;
+                                width: 6.3em;
+                            }
+                        }
+                        // "other"
+                        & > div:last-child {
+                            // background-color: yellow;
+                            display: flex;
+                            // width: 100%;
+                            .input-binary {
+                                width: 4em;
+                            }
+                            .input-text {
+                                // border: 1px solid green;
+                            }
+                        }
+                    }
+                    
+                }
+                // "drive way"
+                > div:nth-child(4), 
+                // "landscaping"
+                > div:nth-child(7) {
+                    .inputs-group {
+                        > div:last-child {
+                            // make it longer because of longer text
+                            .input-binary {
+                                width: 8em;
+                                // background-color: yellow;    
+                            }
+                        }
+                        
+                    }
+                    
+                }
+            }
+        }
+        // > div:nth-child(2) {
+        //     background-color: yellow;
+        //     margin-top: 1em;
+        // }
+        // "estimated age of subject"
+        > div:nth-child(3) {
+            
+            .input-text {
+
+                input {
+                    width: 4em;
+                    flex-grow: 0;
+                }
+                // background-color: yellow;
+                label:last-child {
+                // label {
+                    // background-color: red;
+                    margin-left: 0.5em;
+                }
+            }
+        }
+        // the 3-column block
+        > div:nth-child(5) {
+            .report-section-column {
+                width: 33.33333333%;
+            }
+
+            > div:nth-child(2), div:nth-child(3) {
+                // background-color: yellow;
+                
+                // & > div:nth-child(3) {
+                
+            // }
+            }
+            > div:nth-child(2) {
+                border-right: 1px solid black;
+                // padding-left: 1em;
+                .input-text {
+                    // background-color: yellow;
+                    label {
+                        min-width: 6.5em;
+                    }
+                    select {
+                        width: 100%;
+                    }
+                }
+            }
+            // column 3
+            > div:nth-child(3) {
+                // border-right: 1px solid black;
+                padding-left: 1em;
+                // "roofing"
+                > div:nth-child(1), 
+                // "exterior finish"
+                > div:nth-child(3) {
+                    // background-color: yellow;
+                    select {
+                        width: 100%;
+                    }
+                }
+                > div:nth-child(2),> div:nth-child(4),> div:nth-child(6),> div:nth-child(7),> div:nth-child(8),> div:nth-child(9) {
+                    label {
+                        text-transform: capitalize;
+                    }
+                    > label:first-of-type {
+                        text-transform: uppercase;
+                        // background-color: yellow;
+                        width: 3.3em;
+                        min-width: 3.3em;
+                    }
+                }
+            }
+            
+        }
+    }
+
+// =========================================================
+//           TAB 3 - COMPARABLE
+// =========================================================
+
+
+
+    #comparables {
+        // OLD 
+        /*
+            .tables-group {
+                display: flex;
+                .table {
+                    width: 24.5%;
+                }
+            }
+            .form-row {
+                margin-right: 3px;
+            }
+            thead {
+                tr {
+                    color:#054877;
+                    th {
+                        text-align: center; 
+                        font-weight: bold;
+                    }
+                }
+            }
+            tbody {
+
+
+                tr {
+                    > td:first-child {
+                        font-weight: bold;
+                        vertical-align: middle;
+                    }
+                    
+                    td {
+                        padding: 1px;
+                        // display: flex;
+                        .form-row {
+                            display: flex;
+                            .input-text {
+                                flex-grow: 1;
+                                margin-left: 5px;
+                                input, select {
+                                    width: 100%;    
+                                }
+                            }
+                            > div:first-child {
+                                margin-left: 0;
+                            }
+                        }
+                    }
+                }
+                // specific styles:
+                // table row 1, 2
+                // > tr:first-child, 
+
+                // table row 1
+                > tr:nth-child(1) {
+                    // not "subject" cell
+                    td:not(:nth-child(2)) {
+                        .form-row {
+                            // the "street number" cell
+                            > div:nth-child(1) {
+                                flex-grow: 0;
+                                input {
+                                    width: 5em;
+                                }
+                                
+                            }
+                        }
+                    }
+                }
+                // labels
+                > tr:nth-child(13) {
+                    // background-color: pink;
+                    td {
+                        // padding: 0;
+                        // vertical-align: middle;
+                        .labels-group {
+                            display: flex;
+                            label {
+                                flex-grow: 1;
+                                text-align: center;
+                                text-transform: capitalize;
+                                width: 100%;
+                                // margin: 0;
+                            }     
+                            label:nth-child(2) {
+                                // border-left: 1px solid black;
+                            }                  
+                        }
+
+                    }
+                }
+                > tr:nth-child(16),> tr:nth-child(18) {
+                    td {
+                        .form-row {
+                            .input-text {
+                                input[type="button"] {
+                                    width: 2.5em;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            // "has the subject property been sold..."
+            > div:nth-child(3) {
+                // background-color: lightblue;
+                label {
+                    text-transform: none;
+                }
+            }
+            > div:nth-child(5) {
+                // background-color: yellow;
+                flex-wrap: wrap;
+                label {
+                    text-transform: capitalize;
+                }
+
+                .inputs-group {
+                    // margin-left: 1em;
+                    width: 100%;
+                    .input-binary {
+                        label {
+                            min-width: 10em;
+                            text-transform: none;
+                            width: 10em;
+                        }
+                    }
+                }
+            }
+            */
+        // OLD END
+
+        // test top
+
+
+
+            // OLD revised 
+            // .tables-group {
+            //     display: flex;
+            //     .table {
+            //         width: 24.5%;
+            //     }
+            // }
+            
+            img[src*="popcalendar"] {
+                margin-top: 0.3em;
+            }
+
+            
+
+            .form-row {
+                margin-right: 3px;
+                display: flex;
+
+                .input-text {
+                    flex-grow: 1;
+                    margin-left: 5px;
+
+                    input, select {
+                        width: 100%;    
+                    }
+                    // put a limit on width of "Street Number" field
+                    input[id^="stnbr_comp"] {
+                        width: 5em;
+                        max-width: 5em;
+                    }
+                }
+                > div:first-child {
+                    margin-left: 0;
+                }
+            }
+
+                            
+            
+            
+
+            
+
+            .Rtable {
+                input, select {
+                    height: 30px;
+                    font-family: $label-font;
+                    margin-top: 2px;
+                    margin-bottom: 4px;
+                }
+                .form-row {
+                    margin-right: 6px;
+                    margin-left: 3px;
+                }
+
+                &.Rtable-outer-collapse {
+                    // the two cells containing two tables each
+                    > .Rtable-cell {
+                        // background-color: yellow;
+                        // border-right: 1px solid red;
+                        border-bottom: 0;
+                    }
+                    // cell 2 containing 2 tables
+                    > div:last-child {
+                        .Rtable {
+                            .comparable3 {
+                                border-right: 1px solid black;
+                            }
+                        }
+                        
+                    }
+                }
+                // inner tables
+                .Rtable {
+
+
+
+                    // first cell in each inner table
+                    > div:first-child {
+                        // the inner table "Subject"
+                        label {
+                            margin-bottom: 0.3em;
+                        }
+                        &.subject {
+                            // background-color: yellow;
+                            label {
+                                margin-left: auto;
+                                margin-right: auto;
+                                
+                            }
+                        }
+                        // the inner table "Subject"
+                        // background-color: yellow;
+                        // .Rtable-cell {
+                        //     &.subject {
+                        //         background-color: yellow;
+                        //     }
+                        // }
+                        // .subject {
+                        //     // background-color: yellow;
+                        //     label {
+                        //         background-color: yellow;
+                        //         margin-left: auto;
+                        //         margin-right: auto;
+                        //     }
+                        //     > div:nth-child(20), > div:nth-child(21) {
+                        //         // background-color: yellow;
+                        //         .form-row {
+                        //             // background-color: yellow;
+                        //             width: 9.7em;
+                        //         }
+                        //     }
+                        // }
+                    }
+                    // every cell ...
+                    .Rtable-cell {
+                        // background-color: yellow;
+
+                        border-left: 1px solid black;
+
+                        &.subject {
+                            // border-left: 0;
+                            display: flex;
+                            // first form-row the label
+                            > div:first-child {
+                                // background-color: yellow;
+                                width: 10em;
+                                label {
+                                    // background-color: yellow;
+                                    padding-left: 5px;
+                                    padding-top: 0.2em;
+                                    width: 10em;
+                                }
+                                .form-row {
+                                    padding-left: 5px;
+                                    width: 9em;
+                                }
+                                // label {
+                                //     padding-left: 5px;
+                                //     width: 9em;
+                                // }
+                            }
+                            > div:nth-child(2) {
+                                min-width: 9em;
+                                // .input-text {
+                                //     input {
+                                //         min-width: 9em;
+                                //     }
+                                // }
+                            }
+                            > div:last-child {
+                                flex-grow: 1;
+                                // background-color: yellow;
+                            }
+                        }
+                        &.Rtable-cell--head {
+                            // color:#054877;
+                            text-align: center; 
+                            font-weight: bold;
+                            border-top: 1px solid black;
+                        }
+                        &.subject { // ... in the Subject table
+                            // first form-row
+                            > div:first-child {
+                                
+
+                                
+                            }
+                            > div:nth-child(2) {
+                                // min-width: 9em;
+                                // .input-text {
+                                //     input {
+                                //         min-width: 9em;
+                                //     }
+                                // }
+                            }
+                        }
+                    }
+                    // cell 7 ...
+                    > div:nth-child(7) {
+                        &.subject { // ... of the "Subject" table
+                            // background-color: yellow;
+                            // second form-row
+                            > div:nth-child(2) {
+                                .input-text {
+                                    input {
+                                        min-width: 8em;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    // cell 10 in the inner table (it is cell 10 in first and cell 31 in the second)
+                    > div:nth-child(10), > div:nth-child(32) {
+                        // background-color: yellow;
+                        .input-text {
+                            min-width: 9em;
+                        }
+                        &.subject {
+                            .input-text {
+                                min-width: 3em;
+                            }
+                            // > div:nth-child(2) {
+                            //     // background-color: yellow;
+                            //     .input-text {
+                            //         // the label "X"
+                            //         label {
+                            //             // background-color: yellow;
+                            //             margin-left: 4px;
+                            //         }
+                            //     }
+                            // }
+                        }
+                        // background-color: yellow;
+                        
+                        .form-row {
+                            // input-text with "X" label for site size
+                            > div:nth-child(2) {
+                                label {
+                                    // background-color: yellow;
+                                    margin-left: 4px;
+                                }
+                                
+                            }
+                        }
+                    }
+                    > div:nth-child(14), > div:nth-child(36) { 
+                        .input-text {
+                            select {
+                                // background-color: yellow;
+                                min-width: 4em;
+                            }
+                        }
+                        
+
+                    }
+                    // the "Total | Bdrms" cell
+                    > div:nth-child(15):not(.subject), > div:nth-child(37) {
+                        // background-color: yellow;
+                        > div:nth-child(1) {
+                            // background-color: yellow;
+                            // display: none;
+                        }
+
+                    }
+                    > div:nth-child(17) {
+                        &.subject {
+                            > div:nth-child(2) { // input-text
+                                input:first-child {
+                                    min-width: 8em;
+                                }
+                            }
+                            // .input-text {
+                            //     input {
+                            //         min-width: 8em;
+                            //     }
+                            // }
+                        }
+                    }
+
+                    // Subject table, Extra 1 and Extra 2
+                    > div:nth-child(21), > div:nth-child(22) {
+                        &.subject {
+                            // background-color: yellow;
+                            .form-row {
+                                // background-color: yellow;
+                                width: 10em;
+                                input {
+                                    padding-left: 5px;
+                                }
+                            }
+                        }
+                        
+                    }
+
+
+
+                    
+                }
+                
+                // "Street Number"
+                > div[style="order:1;"]:not(.subject){
+                    .form-row {
+                        // first input-text with "Street Number"
+                        div:first-child {
+                            flex-grow: 0;
+                        }
+
+                    }
+                }
+                
+
+                .labels-group {
+                    display: flex;
+                    label {
+                        flex-grow: 1;
+                        padding-bottom: 0.3em;
+                        text-align: center;
+                        text-transform: capitalize;
+                        width: 100%;
+                        // margin: 0;
+                    }     
+                                    
+                }
+                // buttons
+                > div[style="order:16;"], > div[style="order:18;"]{
+                    .form-row {
+                        .input-text {
+                            input[type="button"] {
+                                width: 2.5em;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .Rtable-cell {
+                // // background-color: yellow;
+                // &.subject {
+                //     display: flex;
+                //     // first form-row the label
+                //     > div:first-child {
+                //         // background-color: yellow;
+                //         .form-row {
+                //             padding-left: 5px;
+                //             width: 9em;
+                //         }
+                //         // label {
+                //         //     padding-left: 5px;
+                //         //     width: 9em;
+                //         // }
+                //     }
+                //     > div:last-child {
+                //         flex-grow: 1;
+                //         // background-color: yellow;
+                //     }
+                // }
+                // &.Rtable-cell--head {
+                //     // color:#054877;
+                //     text-align: center; 
+                //     font-weight: bold;
+                // }
+            }
+               
+
+
+
+
+            tbody {
+
+
+                tr {
+                    // > td:first-child {
+                    //     font-weight: bold;
+                    //     vertical-align: middle;
+                    // }
+                    
+                    td {
+                        padding: 1px;
+                        // display: flex;
+                        // .form-row {
+                        //     display: flex;
+                        //     .input-text {
+                        //         flex-grow: 1;
+                        //         margin-left: 5px;
+                        //         input, select {
+                        //             width: 100%;    
+                        //         }
+                        //     }
+                        //     > div:first-child {
+                        //         margin-left: 0;
+                        //     }
+                        // }
+                    }
+                }
+                // specific styles:
+                // table row 1, 2
+                // > tr:first-child, 
+
+                // table row 1
+                > tr:nth-child(1) {
+                    // not "subject" cell
+                    td:not(:nth-child(2)) {
+                        .form-row {
+                            // the "street number" cell
+                            > div:nth-child(1) {
+                                // flex-grow: 0;
+                                // input {
+                                //     width: 5em;
+                                // }
+                                
+                            }
+                        }
+                    }
+                }
+                // labels
+                > tr:nth-child(13) {
+                    // background-color: pink;
+                    td {
+                        // padding: 0;
+                        // vertical-align: middle;
+                        // .labels-group {
+                        //     display: flex;
+                        //     label {
+                        //         flex-grow: 1;
+                        //         text-align: center;
+                        //         text-transform: capitalize;
+                        //         width: 100%;
+                        //         // margin: 0;
+                        //     }     
+                        //     label:nth-child(2) {
+                        //         // border-left: 1px solid black;
+                        //     }                  
+                        // }
+
+                    }
+                }
+                > tr:nth-child(16),> tr:nth-child(18) {
+                    td {
+                        .form-row {
+                            .input-text {
+                                // input[type="button"] {
+                                //     width: 2.5em;
+                                // }
+                            }
+                        }
+                    }
+                }
+            }
+            // "has the subject property been sold..."
+            > div:nth-child(3) {
+                // background-color: lightblue;
+                label {
+                    text-transform: none;
+                }
+            }
+            > div:nth-child(5) {
+                // background-color: yellow;
+                flex-wrap: wrap;
+                label {
+                    text-transform: capitalize;
+                }
+
+                .inputs-group {
+                    // margin-left: 1em;
+                    width: 100%;
+                    .input-binary {
+                        label {
+                            min-width: 10em;
+                            text-transform: none;
+                            width: 10em;
+                        }
+                    }
+                }
+            }
+        // OLD END
+
+
+            .Rtable {
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+                margin: 0;
+                padding: 0;
+            }
+            .Rtable-cell {
+                box-sizing: border-box;
+                -webkit-box-flex: 1;
+                -ms-flex-positive: 1;
+                flex-grow: 1;
+                width: 100%;
+                padding: 1px;
+                overflow: hidden;
+                list-style: none;
+                // border: solid 1px white;
+                //on ice
+                // background: rgba(112, 128, 144, 0.2);
+            }
+
+            .Rtable {
+                &.Rtable-outer-collapse {
+                    // border: 1px solid blue;
+                }
+            }
+
+
+            .Rtable-cell {
+                > h1, > h2, > h3, > h4, > h5, > h6 {
+                    margin: 0;
+                } 
+            }
+
+            /* Table column sizing
+            ================================== */
+            .Rtable--2cols > .Rtable-cell {
+                width: 50%;
+            }
+            .Rtable--3cols > .Rtable-cell {
+                width: 33.33%;
+            }
+            // .Rtable--4cols > .Rtable-cell {
+            //     width: 25%;
+            // }
+
+            .Rtable--4cols {
+                > .Rtable-cell {
+                    width: 25%;
+                    // &.aaa {
+                    //     width: 50%;
+                    // }
+                }
+            }
+            .Rtable--5cols > .Rtable-cell {
+                width: 20%;
+            }
+            .Rtable--6cols > .Rtable-cell {
+                width: 16.6%;
+            }
+
+            /* Apply styles
+            ================================== */
+            .Rtable {
+                position: relative;
+                top: 3px;
+                left: 3px;
+            }
+            .Rtable-cell {
+                margin: -3px 2px 3px -4px;
+                // on ice
+                // background-color: white;
+                // border-color: #e2e6e9;
+                border-color: black;
+                border-bottom: 1px solid black;
+            }
+            /* Cell styles
+            ================================== */
+
+
+            .Rtable-cell--dark {
+                background-color: slategrey;
+                border-color: #5a6673;
+                color: white;
+
+                > h1, > h2, > h3, > h4, > h5, > h6 {
+                    color: white;
+                } 
+            }
+            .Rtable-cell--medium {
+                background-color: #b8c0c8;
+                border-color: #a9b3bc;
+            }
+            .Rtable-cell--light {
+                background-color: white;
+                border-color: #e2e6e9;
+            }
+            .Rtable-cell--highlight {
+                background-color: lightgreen;
+                border-color: #64e764;
+            }
+            .Rtable-cell--alert {
+                background-color: darkorange;
+                border-color: #cc7000;
+                color: white;
+            }
+
+
+            .Rtable-cell--alert {
+                > h1, > h2, > h3, > h4, > h5, > h6 {
+                    color: white;
+                }
+            }
+
+
+            .Rtable-cell--head {
+                // background-color: slategrey;
+                // border-color: #5a6673;
+                // color: white;
+                // border-top: 1px solid black;
+            }
+
+            .Rtable-cell--head {
+                // > h1, > h2, > h3, > h4, > h5, > h6 {
+                //     color: white;
+                // }
+            }
+
+
+            .Rtable-cell--foot {
+                background-color: #b8c0c8;
+                border-color: #a9b3bc;
+            }
+            /* Responsive
+            ==================================== */
+
+            @media all and (max-width: 950px) {
+
+
+
+                // .Rtable--collapse {
+                //     display: block;
+                //     > .Rtable-cell {
+                //         width: 100% !important;
+                        
+                //     }
+                //     > .Rtable-cell--foot {
+                //         margin-bottom: 1em;
+                //     }
+                // }
+            }
+
+
+            // .no-flexbox {
+            //     .Rtable {
+            //         display: block;
+            //         > .Rtable-cell {
+            //             width: 100%;
+            //         }
+            //         > .Rtable-cell--foot {
+            //             margin-bottom: 1em;
+            //         }
+            //     }
+            // }
+
+            // .no-flexbox .Rtable {
+            //     display: block;
+            // }
+            // .no-flexbox .Rtable > .Rtable-cell {
+            //     width: 100%;
+            // }
+            // .no-flexbox .Rtable > .Rtable-cell--foot {
+            //     margin-bottom: 1em;
+            // }
+        // test bottom 
+
+    }
+
+// =========================================================
+//           TAB 4 - DEFINITION
+// =========================================================
+
+
+// =========================================================
+//           TAB 5 - CERTIFICATION
+// =========================================================
+
+    // @import url("http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css");
+    // /* 
+    //     FORM STYLING
+    // */
+    // #signature-selector {
+    //     margin: 10px; 
+    // }
+    // #upload-file-selector {
+    //     display:none;   
+    // }
+    // .margin-correction {
+    //     margin-right: 10px;   
+    // }
+
+
+    /* debugging */
+    #appraiser_signature_section {
+        // background-color: lightgray;
+        // padding: 10px;
+    }
+
+    .signature-container {
+        // background-color: lightblue;
+        // padding: 10px;
+        // display: flex;
+    }
+
+    .signature-wrapper {
+        // background-color: lightpink;
+        // padding: 10px;
+        // flex-grow: 1;
+    }
+    .m-signature-pad--body {
+        display: flex;
+        align-items: center;
+        margin-right: 1em;
+        label {
+            margin: 1em;
+        }
+        canvas {
+            flex-grow: 1;
+            border: 1px solid black;
+        }
+    }
+    .m-signature-pad--footer {
+        // background-color: lightgreen;
+        // padding: 10px;
+        display: flex;
+        align-items: center;
+        margin: 1em;    
+
+        .footer-element {
+            flex-grow: 1;
+            text-align: center;
+            margin: 0 1em;
+            &.btn {
+                min-height: 3em;
+            }
+        }
+        .lock-icon {
+            img { 
+                width: 3em;
+            }
+        }
+    }
+
+
+    #certification_tab {
+        ol {
+            margin-left: -20px;
+        }
+        label {
+            white-space: normal;
+        }
+
+        .signature-password {
+            border: 1px solid black;
+            width: 50%;
+            margin: 1em 0 0 0;
+            label {
+                text-transform: capitalize;
+                margin: 1em;
+            }
+            
+        }
+        .report-section-columns-group, .report-section-column {
+            border: 0;
+        }
+    }
+
+    #appraiser_designation_sel, #appraiser_designation {
+        width: 50%;
+    }
+
+    label#date_signed_appraiser {
+        white-space: normal;
+    }
+
+    img#upload-sig-icon {
+        width: 2em;
+    }
+
+
+
+@media screen and (max-width: 1600px) {
+    #title_area::before {
+        content: "1600px";
+        color: red;
+    }
+
+    // TAB 1 - PROPERTY
+
+    #land_assessment, #imps_assessment, #total_assessment, #taxes {
+        width: 5em;
+    }
+    #mls_district1, #mls_district2, #mls_district3, #mls_district4 {
+        width: 7em;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    #title_area::before {
+        content: "1440px";
+        color: black;
+    }
+    // TAB 1 - PROPERTY
+    #subj_province {
+        width: 4em;
+    }
+    #subj_postal_code {
+        width: 5em;
+    }
+
+    // TAB 1 - CLIENT & APPRAISER
+
+    
+}
+
+@media screen and (max-width: 1280px) {
+
+    #title_area::before {
+        content: "1280px";
+        color: red;
+    }
+    // TAB 1 - GENERAL
+    #file_number {
+        width: 6em;
+    }
+
+    // TAB 1 - CLIENT & APPRAISER
+    #client_city, #appraiser_city {
+        width: 10em;
+    }
+
+
+    // TAB 1 - PROPERTY
+    #property {
+        // Assessment row
+        div:nth-child(13) {
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            .input-text {
+                flex-grow: 0;
+            }
+        }
+    }
+
+    #subj_city {
+        width: 7em;
+    }
+
+    #subj_province {
+        width: 2em;
+    }
+
+    #maintenance_fee {
+        width: 3em;
+    }
+
+    #municipality_district {
+        width: 9em;
+    }
+
+    #taxes {
+        flex-grow: 0;
+    }
+
+    #tax_year {
+        width: 5em;
+    }
+    
+    // TAB 2 - NEIGHBORHOOD
+    // neighborhood
+
+
+    #column1 {
+        .form-row {
+            flex-wrap: wrap;
+        }
+    }
+
+    // TAB 3 - comparables
+    #comparables {
+
+        .Rtable {
+            // the cell with tables 1 and 2
+            > div:nth-child(1) {
+                .Rtable {
+                    margin-bottom: 2em;
+                    .Rtable-cell {
+                        &.comparable1 {
+                            border-right: 1px solid black;
+                        }
+                    }
+                }
+            }
+            // the cell with tables 3 and 4
+            > div:last-child {
+                .Rtable {
+                    .Rtable-cell {
+                        &.comparable2 {
+                            border-left: 1px solid black;
+                        }
+                    }
+                }
+            }
+
+            .Rtable {
+                // when in mobile in 2-column layout, the "COMPARABLE 2" table becomes left-most
+                // so it needs row names for itself and for "COMPARABLE 3"
+                div[class*="comparable2"] { 
+                    /* Behave  like a "row" */
+                    // background-color: yellow;
+                    // border: none;
+                    // border-bottom: 1px solid #eee; 
+                    position: relative;
+                    .form-row, .labels-group {
+                        padding-left: 10.5em; 
+                        // background-color: yellow;
+                    }
+
+                    //================================================
+                    &::before {
+                        /* Now like a table header */
+                        position: absolute;
+                        /* Top/left values mimic padding */
+                        top: 6px;
+                        left: 6px;
+                        width: 10em; 
+                        padding-right: 10px; 
+                        white-space: nowrap;
+                        // color: red;
+                        // background-color: yellow;
+                        font-family: $label-font;
+                        text-transform: uppercase;
+                        // content: "Hello!";
+                    }
+
+                    &[style="order:1;"]:before  { content: "Property address"; }
+                    // #2 is empty
+                    &[style="order:3;"]:before  { content: "City - Prov"; }
+                    &[style="order:4;"]:before  { content: "postal code"; }
+                    &[style="order:5;"]:before  { content: "approx. dist. from sub."; }
+                    &[style="order:6;"]:before  { content: "date of sale"; }
+                    &[style="order:7;"]:before  { content: "sale price"; }
+                    &[style="order:8;"]:before  { content: "days on market"; }
+                    &[style="order:9;"]:before  { content: "site size"; }
+                    &[style="order:10;"]:before { content: "building type"; }
+                    &[style="order:11;"]:before { content: "design/style"; }
+                    &[style="order:12;"]:before { content: "age/condition"; }
+                    &[style="order:13;"]:before { content: "gross living area"; }
+                    &[style="order:14;"]:before { content: ""; }
+                    &[style="order:15;"]:before { content: "room count"; }
+                    &[style="order:16;"]:before { content: "bathroom count"; }
+                    &[style="order:17;"]:before { content: "basement"; }
+                    &[style="order:18;"]:before { content: "parking"; }
+                    &[style="order:19;"]:before { content: "driveway"; }
+                    &[style="order:20;"]:before { content: "extra 1"; }
+                    &[style="order:21;"]:before { content: "extra 2"; }
+                    //================================================ 
+
+
+                        
+                }
+                
+            }
+            
+        }
+
+        .Rtable-outer-collapse {
+            display: block;
+            > .Rtable-cell {
+                width: 100% !important;
+                
+            }
+            > .Rtable-cell--foot {
+                margin-bottom: 1em;
+            }
+        }
+        // A way to style tables for easier identification in mobile devices
+        // .comparable1 {
+        //     background-color: #e8f8f5; // greenish
+
+        // }
+        // .comparable2 {
+        //     background-color: #fef9e7; // yellowish
+        // }
+        // .comparable3 {
+        //     background-color: #fdedec; // reddish
+        // }
+
+        
+
+        
+        
+        
+    }
+}
+
+@media screen and (max-width: 1136px) {
+    #title_area::before {
+        content: "1136px";
+        color: blue;
+    }
+    // TAB 1 - GENERAL
+    #doc_number {
+        width: 7em;
+    }
+
+    // TAB 1 - CLIENT and APPRAISER
+    // #client_phone, #appraiser_phone {
+    //     max-width: none;
+    // }
+    
+    #client {
+        div:nth-child(4), div:nth-child(5)  {
+            flex-wrap: wrap;
+        }
+    }
+
+    #appraiser {
+        div:nth-child(5), div:nth-child(6) {
+            flex-wrap: wrap;
+        }
+    }   
+    
+    // TAB 1 - PROPERTY
+    #property {
+        // Assessment row
+        div:nth-child(2) {
+            flex-wrap: wrap;
+            justify-content: flex-start;
+
+            .input-text {
+                flex-grow: 1;
+            }
+        }
+
+        div:nth-child(8),
+        div:nth-child(9), 
+        div:nth-child(10), 
+        div:nth-child(12){
+            flex-wrap: wrap;
+            justify-content: flex-start;
+
+            .input-text {
+                flex-grow: 0;
+            }
+        }
+
+
+    }
+    #subj_province {
+        width: 5em;
+    }
+
+    #subj_postal_code {
+        width: 8em;
+    }
+    #maintenance_fee {
+        width: 6em;
+    }
+
+    // TAB 2 - neighbourhood
+
+    #neighbourhood {
+        .rowsOfInputsGroup-container {
+            flex-wrap: wrap;
+        }
+
+    }
+
+    #column2 {
+        div:nth-child(1),
+        div:nth-child(4) {
+            flex-wrap: wrap;
+        }
+    }
+    
+    #site {
+        .report-section-columns-group {
+            
+            // column 2
+            & > div:nth-child(2) {
+                .form-row {
+                    flex-wrap: wrap;
+                    .inputs-group {
+                        // background-color: yellow;
+                    }
+                }
+            }
+        }
+        // third group of columns
+        > div:nth-child(5) {
+            // column 3
+            > div:nth-child(3) {
+                // rows 2,4,6,7,8,9
+                > div:nth-child(2),> div:nth-child(4),> div:nth-child(6),> div:nth-child(7),> div:nth-child(8),> div:nth-child(9) {
+                    flex-wrap: wrap;
+                }
+
+            }
+        }
+    }
+
+
+
+}
+
+@media screen and (max-width: 1024px) {
+
+    #title_area::before {
+        content: "1024px";
+        color: green;
+    }
+
+    // TAB 1 - CLIENT & APPRAISER
+
+    // TAB 1 - PROPERTY
+
+    // TAB 2 - NEIGHBOURHOOD
+    #column1 {
+        .form-row {
+            flex-wrap: nowrap;
+            .inputs-group {
+                // background-color: wheat;
+                flex-wrap: wrap;
+                div:last-child {
+                    // border-color: green;
+                    // display: flex;
+                    width: 20em !important;
+                    // input {
+                    //     border-color: red;
+                    // }
+
+                }
+            }
+        }
+    }
+
+    #site {
+        .report-section-columns-group {
+            // column 1
+            > div:first-of-type {
+                // background: yellow;
+                // "site area"
+                & > div:nth-child(2) {
+                    > div:first-of-type {
+                        input {
+                            width: 10em;
+                        }
+                        
+                        // background: yellow;
+                    }
+                    .inputs-group {
+                        // background: yellow;
+                        input {
+                            // background-color: yellow;
+                            // width: 10em;
+                        }
+                    }
+                    
+                }
+                // "conform to zoning?"
+                div:nth-child(7) {
+                    // background-color: wheat;
+                    flex-wrap: wrap;
+                    label {
+                        // background-color: yellow;
+                        text-transform: capitalize;
+                    }
+                }
+
+            }
+        }
+        // third group of columns
+        > div:nth-child(5) {
+            // column 2
+            > div:nth-child(2) {
+                // all rows
+                .form-row {
+                    .input-text {
+                        flex-wrap: wrap;
+                    }
+
+                }
+            }
+        }
+
+    }
+
+
+}
+
+@media screen and (max-width: 960px) {
+    #title_area::before {
+        content: "960px";
+        color: purple;
+    }
+    // #general {
+    //     .form-row {
+    //         flex-wrap: wrap;
+    //         justify-content: flex-start; 
+    //     }
+    // }
+    // TAB 1 - PROPERTY
+
+
+    
+}
+
+@media screen and (max-width: 950px) {
+    #title_area::before {
+        content: "950px";
+        color: black;
+    }
+    // TAB 1 - GENERAL
+    #general {
+        .form-row {
+           flex-wrap: wrap;
+            justify-content: flex-start; 
+        }
+    }
+    // TAB 1 - CLIENT and APPRAISER
+    // #client
+    // TAB 1 - PROPERTY
+    // TAB 2 - SITE & IMPROVEMENTS
+    #site {
+        .report-section-columns-group {
+            // column 1
+            > div:first-of-type {
+                // background: yellow;
+                // "site area"
+                & > div:nth-child(2) {
+                    > div:first-of-type {
+                        input {
+                            width: 9em;
+                        }
+                    }
+                }
+            }
+        }
+        // "estimated age of subject"
+        > div:nth-child(3) {
+            // background-color: yellow;
+            flex-wrap: wrap;
+        }
+        // third group of columns
+        > div:nth-child(5) {
+            // column 3
+            > div:nth-child(3) {
+                // rows 2,4,6,7,8,9
+                > div:nth-child(2),> div:nth-child(4),> div:nth-child(6),> div:nth-child(7),> div:nth-child(8),> div:nth-child(9) {
+                    .inputs-group {
+                        flex-wrap: wrap;
+                    }
+                }
+            }
+        }
+    }
+
+    // TAB 3 - COMPARABLES
+    #comparables {
+        .Rtable {
+            // second column with 2 tables
+            >div:nth-child(2) {
+                .Rtable {
+                    > div:nth-child(10) {
+                        .form-row {
+                            .input-text {
+                                // background-color: yellow;
+                                min-width: 0;
+                                input {
+                                    width: 80%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    > div:nth-child(10) {
+                    background-color: yellow;
+                    // second form-row
+                    > div:nth-child(2) {
+                        background-color: yellow;
+                    }
+
+                }
+
+}
+
+@media screen and (max-width: 860px) {
+    #title_area::before {
+        content: "860px";
+        color: red;
+    }
+    // TITLE AREA
+    #title_area {
+        margin-bottom: 2em;
+    }
+
+    // TAB 1 - CLIENT and APPRAISER
+    // make 2-column layout into 1-column layout
+    #client-and-appraiser {
+        display: block;
+    }
+
+    #client {
+        div:nth-child(5) {
+            .input-text {
+                flex-grow: 1;
+            }
+            input {
+                max-width: none;
+            }
+        }
+    }
+
+    #appraiser {
+        div:nth-child(6) {
+            .input-text {
+                flex-grow: 1;
+            }
+            input {
+                max-width: none;
+            }
+        }
+    } 
+
+    // TAB 1 - PROPERTY
+
+    // TAB 1 - NEIGHBOURHOOD
+    #column1 {
+        .form-row {
+            flex-wrap: wrap;
+        }
+    }
+    
+    // TAB 2 - SITE & IMPROVEMENTS
+    #site {
+        .report-section-columns-group {
+            // column 1
+            > div:first-of-type {
+                // background: yellow;
+                // "site area"
+                > div:nth-child(2), 
+                > div:nth-child(1) {
+                    flex-wrap: wrap;
+                }
+            }
+        }
+        > div:nth-child(4) {
+            flex-wrap: wrap;
+        }
+        // third group of columns
+        > div:nth-child(5) {
+            // column 3
+            > div:nth-child(3) {
+                // rows 1,3
+                > div:nth-child(1),
+                > div:nth-child(3) {
+                    .input-text {
+                        flex-wrap: wrap;
+                    }
+                }
+
+            }
+        }
+    }
+
+}
+
+
+@media screen and (max-width: 768px) {
+    #title_area::before {
+        content: "768px";
+        color: green;
+    }
+
+    // TAB 2 - SITE & IMPROVEMENTS
+    #site {
+        // third group of columns
+        > div:nth-child(5) {
+            display: block;
+            border-bottom: 0;
+
+            .report-section-column {
+                margin-left: 0;
+                border-right: 0;
+                // border-bottom: 1px solid black;
+                width: auto;
+            }
+            // column 1,2
+            > div:nth-child(1), > div:nth-child(2) {
+                border-bottom: 1px solid black;
+                border-right: 0;
+                margin-bottom: 1em;
+            }
+            // column 2
+            > div:nth-child(2) {
+                .form-row {
+                    .input-text {
+                        // background-color: yellow;
+                        flex-wrap: nowrap;
+                    }
+                }
+            }
+            // column 3
+            > div:nth-child(3) {
+                border-bottom: 0;
+                padding-left: 0;
+                > div:nth-child(1), > div:nth-child(3) {
+                    .input-text {
+                        // background-color: wheat;
+                        flex-wrap: nowrap;
+                    }
+                }
+            }
+        }
+    }
+
+    // TAB 3 - comparables
+    #comparables {
+
+
+
+
+
+        .Rtable {
+            > div:nth-child(1) {
+                .Rtable {
+                    margin-bottom: 0;
+                }
+            }
+            .Rtable {
+                // margin-bottom: 1em;
+
+                // when in mobile in 2-column layout, the "COMPARABLE 2" table becomes left-most
+                // so it needs row names for itself and for "COMPARABLE 3"
+                // div = Rtable-cell
+                div[class*="comparable1"], div[class*="comparable3"] { 
+                    /* Behave  like a "row" */
+                    // background-color: yellow;
+                    // border: none;
+                    // border-bottom: 1px solid #eee; 
+                    position: relative;
+                    .form-row, .labels-group {
+                        padding-left: 10.5em; // <==============
+                        // margin-left: 10.5em;
+                        // background-color: yellow;
+                    }
+
+                    //================================================
+                    &::before {
+                        /* Now like a table header */
+                        position: absolute;
+                        /* Top/left values mimic padding */
+                        top: 3px;
+                        left: 6px;
+                        width: 10em; 
+                        padding-right: 10px; 
+                        white-space: nowrap;
+                        // color: red;
+                        // background-color: yellow;
+                        font-family: $label-font;
+                        text-transform: uppercase;
+                        // content: "Hello!";
+                    }
+
+                    &[style="order:1;"]:before  { content: "Property address"; }
+                    // #2 is empty
+                    &[style="order:3;"]:before  { content: "City - Prov"; }
+                    &[style="order:4;"]:before  { content: "postal code"; }
+                    &[style="order:5;"]:before  { content: "approx. dist. from sub."; }
+                    &[style="order:6;"]:before  { content: "date of sale"; }
+                    &[style="order:7;"]:before  { content: "sale price"; }
+                    &[style="order:8;"]:before  { content: "days on market"; }
+                    &[style="order:9;"]:before  { content: "site size"; }
+                    &[style="order:10;"]:before { content: "building type"; }
+                    &[style="order:11;"]:before { content: "design/style"; }
+                    &[style="order:12;"]:before { content: "age/condition"; }
+                    &[style="order:13;"]:before { content: "gross living area"; }
+                    &[style="order:14;"]:before { content: ""; }
+                    &[style="order:15;"]:before { content: "room count"; }
+                    &[style="order:16;"]:before { content: "bathroom count"; }
+                    &[style="order:17;"]:before { content: "basement"; }
+                    &[style="order:18;"]:before { content: "parking"; }
+                    &[style="order:19;"]:before { content: "driveway"; }
+                    &[style="order:20;"]:before { content: "extra 1"; }
+                    &[style="order:21;"]:before { content: "extra 2"; }
+                    //================================================ 
+
+
+                        
+                }
+
+                .Rtable-cell--head:not(.subject) {
+                    // put on ice for now
+                    // border-top: 1px solid black;
+                }
+                
+
+                div[class~="subject"], div[class~="comparable2"] {
+                    // background-color: yellow;
+                    // border-left: 1px solid black;
+                }
+                // border-left: 1px solid black;
+                // border-right: 1px solid black;
+
+
+                .Rtable-cell {
+                    &.subject, &.comparable2 {
+                        // background-color: yellow;
+                        border-left: 1px solid black !important;
+                    }
+                    // &[class*="comparable2"] {
+                    //     background-color: yellow;
+                    //     border-left: 1px solid black;
+                    // }
+                    // border-left: 1px solid black;
+                    border-right: 1px solid black;
+
+                    &:not(.subject) {
+                    // > div:not(.subject) {
+                        .form-row, .labels-group  {
+                            
+                            // margin-left: 11em;
+                        }
+                        &.Rtable-cell--head {
+                            // background-color: yellow;
+                            margin-top: 1em;
+                        }
+                        
+                    }
+                }
+                // Hide the empty row 3 in "Subject" table
+                > div:nth-child(3) {
+                    &.subject {
+                        display: none;
+                    }
+                }
+                > div:nth-child(15):not(.subject), > div:nth-child(37) {
+                    // background-color: yellow;
+                    // > div:nth-child(1) {
+                    //     // background-color: yellow;
+                    //     display: inline-block;
+                    // }
+
+                }
+            }
+        }
+
+        // march 8 start
+        .Rtable--collapse {
+            display: block;
+            > .Rtable-cell {
+                width: 100% !important;
+                
+            }
+            > .Rtable-cell--foot {
+                margin-bottom: 1em;
+            }
+        }
+
+
+        // LABELS start
+
+        // div[style^="order"]:not(.subject) { 
+        //     /* Behave  like a "row" */
+        //     // background-color: yellow;
+        //     border: none;
+        //     border-bottom: 1px solid #eee; 
+        //     position: relative;
+        //     .form-row {
+        //         // padding-left: 11em; 
+        //         // background-color: yellow;
+        //     }
+            
+        // }
+        // div:before {
+        //     /* Now like a table header */
+        //     position: absolute;
+        //     /* Top/left values mimic padding */
+        //     top: 6px;
+        //     left: 6px;
+        //     width: 10em; 
+        //     padding-right: 10px; 
+        //     white-space: nowrap;
+        //     // color: red;
+        //     // background-color: white;
+        //     font-family: $label-font;
+        //     text-transform: uppercase;
+        // }
+        
+        // // When on mobile, show the row names for all tables except the Subject table
+        // // because it uses its own column
+        // div[style="order:1;"]:not(.subject):before { content: "Property address"; }
+        // // #2 is empty
+        // div[style="order:3;"]:not(.subject):before { content: "City - Prov"; }
+        // div[style="order:4;"]:not(.subject):before { content: "postal code"; }
+        // div[style="order:5;"]:not(.subject):before { content: "approx. dist. from sub."; }
+        // div[style="order:6;"]:not(.subject):before { content: "date of sale"; }
+        // div[style="order:7;"]:not(.subject):before { content: "sale price"; }
+        // div[style="order:8;"]:not(.subject):before { content: "days on market"; }
+        // div[style="order:9;"]:not(.subject):before { content: "site size"; }
+        // div[style="order:10;"]:not(.subject):before { content: "building type"; }
+        // div[style="order:11;"]:not(.subject):before { content: "design/style"; }
+        // div[style="order:12;"]:not(.subject):before { content: "age/condition"; }
+        // div[style="order:13;"]:not(.subject):before { content: "gross living area"; }
+        // div[style="order:14;"]:not(.subject):before { content: ""; }
+        // div[style="order:15;"]:not(.subject):before { content: "room count"; }
+        // div[style="order:16;"]:not(.subject):before { content: "bathroom count"; }
+        // div[style="order:17;"]:not(.subject):before { content: "basement"; }
+        // div[style="order:18;"]:not(.subject):before { content: "parking"; }
+        // div[style="order:19;"]:not(.subject):before { content: "driveway"; }
+        // div[style="order:20;"]:not(.subject):before { content: "extra 1"; }
+        // div[style="order:21;"]:not(.subject):before { content: "extra 2"; }
+        // // march 8 end
+
+        // LABELS end
+        
+        
+
+
+
+    }
+}
+
+@media screen and (max-width: 720px) {
+    #title_area::before {
+        content: "720px";
+        color: green;
+    }
+    // TITLE AREA
+    .form-title {
+        h1 {
+            font-size: 24px;
+        }
+    }
+
+    // TAB 1 - GENERAL
+    #reference_number {
+       width: 9em; 
+    }
+
+    // TAB 1 - CLIENT and APPRAISER
+    // #client, #appraiser {
+    //     .province {
+    //         width: 60%;
+    //         flex-grow: 0;
+    //     }
+    // }
+
+    #client_city, #appraiser_city {
+        width: 100%;
+    }
+
+    #property {
+
+        div:nth-child(4),
+        div:nth-child(5), 
+        div:nth-child(7), 
+        div:nth-child(15) {
+            flex-wrap: wrap;
+        }
+
+        div:nth-child(6) {
+            .input-text {
+                flex-wrap: wrap;
+                input {
+                    margin-left: 1em;
+                }
+            }
+        }
+
+        div:nth-child(11) {
+            flex-wrap: wrap;
+            label:nth-child(1),label:nth-child(2) {
+                margin-right: 5px;
+            }
+            label:nth-child(3) {
+                margin-left: 1em;
+            }
+        }
+    }
+
+    // TAB 1 - NEIGHBOURHOOD
+    #neighbourhood {
+        
+        .report-section-columns-group {
+            // layout: 2-column to single column
+            display: block;
+
+            & > div:nth-child(1) {
+                border-right: none;
+                
+            }
+            & > div:nth-child(2) {
+                margin-left: 0;
+                border-top: 1px solid black;
+                margin-top: 1em;
+            }
+            
+        }
+    }
+    #column1 {
+        .form-row {
+            .inputs-group{ 
+                div:last-child {
+                    width: 100% !important;
+                }
+            }
+        }
+    }
+
+    // TAB 2 - SITE & IMPROVEMENTS
+    #site {
+        // third group of columns
+        > div:nth-child(1) {
+            display: block;
+            border-bottom: 0;
+
+            .report-section-column {
+                margin-left: 0;
+                border-right: 0;
+                // border-bottom: 1px solid black;
+                width: auto;
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+    #title_area::before {
+        content: "600px";
+        color: red;
+    }
+
+    #property {
+        div:nth-child(8) {
+            label {
+                white-space: normal;
+            }
+        }
+    }
+
+    // TAB 3 - COMPARABLES
+    #comparables {
+        // "has the subject property been sold..."
+        > div:nth-child(3) {
+            flex-wrap: wrap;
+            // background-color: lightblue;
+            label {
+                white-space: normal;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    #title_area::before {
+        content: "480px";
+        color: blue;
+    }
+
+    // TAB 2 - NEIGHBOURHOOD
+    #column2 {
+        div:nth-child(3) {
+            flex-wrap: wrap;
+        }
+    }
+
+    #neighbourhood {
+
+        > div:last-child {
+            .inputs-group {
+                flex-wrap: wrap;
+            }
+            label {
+                white-space: normal;
+            }
+        }
+    }
+
+    // TAB 3 - COMPARABLES
+    #comparables {
+        // div:before {
+
+        //     width: 7em; 
+        //     font-size: 10px;
+        //     white-space: normal;
+        // }
+
+        .Rtable {
+            .Rtable {
+                div[class*="comparable"]:before {
+                    // background-color: yellow;
+                    width: 6em; 
+                    font-size: 11px;
+                    padding-left: 0;
+                    white-space: normal;
+                    
+                }
+                .Rtable-cell{
+                    &.subject {
+                        // labels for every row
+                        > div:first-child {
+                            width: 5em;
+                            label {
+                                font-size: 11px;
+                                padding-top: 0.1em;
+                                white-space: normal;
+                            }
+                        }
+                    }
+                    &:not(.subject) {
+                        .form-row, .labels-group {
+                            // margin-left: 6em;
+                            padding-left: 5.5em;
+                        }
+
+                    }
+                    .form-row, .labels-group {
+                        // margin-left: 6em;
+                        // padding-left: 0;
+                    }
+                }
+            }
+        }
+
+
+    }
+
+
+}
+    
+   
+
+
+
+@media screen and (max-width: 380px) {
+    #title_area::before {
+        content: "380px";
+        color: orange;
+    }
+}
+@media screen and (max-width: 320px) {
+    #title_area::before {
+        content: "320px";
+        color: gray;
+    }
+}

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+       #map {
+        width: 580px;
+        height: 640px;
+        float: left;
+       }
+    </style>
+    
+	<script src="/NAS/formhtml5/js/jquery/1.12.4/jquery-1.12.4.js"></script>    
+    
+  </head>
+  <body>
+    <h3>My Google Maps Demo</h3>
+    
+    <div style="width:1400px;">
+    
+	    <div id="map">
+	    </div>
+	    
+	    <div style="width:580px; height: 640px; float:right;">
+	   		<canvas id="mapCanvas" width="580" height="640"></canvas>  
+	   		<input id="locationmap_image" name = "locationmap_image" type="hidden" value=""/>
+	   	</div> 
+   	
+   	</div>
+    
+    <script>      
+    
+      function initMap() {
+    	  
+    	  
+    	/* Using Latitude and Longtitude */  
+    	
+        var uluru = {lat: 43.849891, lng: -79.425715};        
+//        var sAddress = "43.849891,-79.425715";     
+
+        var sAddress = "20 Levellands Cres, Richmond Hill, ON, Canada, L4B 0A5";
+        
+        var mapDiv = document.getElementById('map');
+        
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 14,
+          center: uluru
+        });
+        
+//        var marker = new google.maps.Marker({
+//          position: uluru,
+//          map: map
+//        });
+               
+        /* Using Address */
+		   var geocoder = new google.maps.Geocoder();
+		
+		   geocoder.geocode({
+		      'address': "20 Levellands Cres, Richmond Hill, ON, Canada, L4B 0A5"
+		   }, 
+		   
+		   function(results, status) {
+		      if(status == google.maps.GeocoderStatus.OK) {
+		         new google.maps.Marker({
+		            position: results[0].geometry.location,
+		            map: map
+		         });
+		         map.setCenter(results[0].geometry.location);
+		         console.log("Map is Ok!")
+		      }
+		   });        
+        
+        
+        
+        var getStaticMap = function getStaticMap() {
+            //window.alert('Map was clicked!');
+                        
+            var sCentre = map.getCenter().toString().replace(/\(/,"").replace(/\)/,"");            
+            
+            var sZoom = map.getZoom();
+            
+            console.log("Zoom level: " + sZoom + "\n" + "Center in: " + sCentre);
+                  
+//          console.log("sCentre: " + sCentre.replace(/\(/,""));
+            
+            processLocationMap(sCentre, sAddress, sZoom);
+            
+        }
+        
+        
+//        var infowindow = new google.maps.InfoWindow({
+//            content: 'Change the zoom level',
+//            position: uluru
+//        });
+        
+//       infowindow.open(map);
+
+		/* Add Listener */
+		/*  */
+        map.addListener('zoom_changed', function() {
+            //infowindow.setContent('Zoom: ' + map.getZoom());
+            getStaticMap();
+          });        
+                        
+        // We add a DOM event here to show an alert if the DIV containing the
+        // map is clicked.
+        google.maps.event.addDomListener(mapDiv, 'click', getStaticMap);
+        
+        
+      } 
+      
+    //Init location map section.
+      function processLocationMap(sCentre, sAddress, sZoom) {
+      	
+     		console.log("Loading location map..");
+    				    	
+   			var good = true;
+   			
+   			var sTmp = "";
+   			var sMarkers = "";
+  			
+   			sMarkers = "color:red|label:S|" + sAddress;			
+   						
+   			var newUrl = "/NAS/GoogleURLSigner?center=" + sCentre + "&markers=" + sMarkers + "&zoom=" + sZoom;
+   			
+   			console.log("newUrl:" + newUrl);
+   			
+   			newUrl = newUrl + "&timestamp=" + new Date().getTime();
+   	
+   			if(good) {
+   				
+  				debugger;
+  				
+				var getURL = 
+					function getURL(sData) {
+						debugger;
+						$("#locationmap_image").val(sData);
+					}
+				   				
+   				convertImgToDataURLviaCanvas(newUrl, getURL, "mapCanvas");
+   		
+   				
+   			} else {
+   				console.log("Property address information is incorrect!");
+   			}	
+
+
+      }  
+    
+
+    //New get image function.
+      function convertImgToDataURLviaCanvas(url, callback, canvasId) {
+      	  var img = new Image();
+      	  var dataURL;
+      	  img.crossOrigin = 'Anonymous';
+      	  img.onload = function() {
+//      	    var canvas = document.createElement('CANVAS');
+      		var canvas = document.getElementById(canvasId);
+      	    var ctx = canvas.getContext('2d');
+      	    canvas.height = this.height;
+      	    canvas.width = this.width;
+      	    ctx.drawImage(this, 0, 0);
+      	    var sTmp = canvas.toDataURL();
+      	    
+	  	  	if(!isEmpty(sTmp)) {
+		  	    	
+  	  		//  	    	debugger;
+  	  		  	    	
+  	  		//  	    	console.log("Map data before remove header: " + sTmp);
+  	  		  	    	
+  	  		  	    	var sTmp = sTmp.replace(/^data:image\/(png|jpg);base64,/, "");
+  	  		  	    	
+  	  		              /* Shrink the image */
+  	  		  	    	
+  	  		  	    	
+  	  		              var sUrl = "/NAS/servlet/com.visionmax.servlet.CommandServlet?command=resizeimage";
+  	  		              
+  	  		              console.log("sUrl: " + sUrl);
+  	  		              
+  	  		              var oImg = $.param({
+  	  		                  width: 580,
+  	  		                  height: 640,
+  	  		                  sBase64: sTmp,
+  	  		                  headers : {'Content-Type': 'application/x-www-form-urlencoded'}
+  	  		              });
+  	  		                                   
+  	  		      		$.post(sUrl, 
+  	  		      			oImg,
+  	  		      			function(data) {
+  	  		  	    			if(!isEmpty(data)) {
+  	  		  	    		    	callback(data);
+  	  		  	    			} else {
+  	  		  	    				console.log("Resize data error!");
+  	  		  	    			}
+  	  		  				});	                            
+  	  		              /* End Shrink */ 	    	
+  	  		  	    		    		  	  		
+  	  		  	    }
+  	  		  	    canvas = null;	    
+  	  		
+  	  	  };      	    
+
+   	  
+      	  img.src = url;
+
+      }  
+    
+      function isEmpty(str) {
+    		var bVal = true;
+    		if(str != "" && str != null) {
+    			bVal = false;
+    		}
+    		return bVal;
+    	}    
+      
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHqPxbJdpzpYXTdjeXIVKlpn8zdzwPnCs&callback=initMap">
+    </script>
+  </body>
+</html>

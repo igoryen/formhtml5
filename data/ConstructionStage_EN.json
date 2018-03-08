@@ -1,0 +1,136 @@
+{
+	"records": [
+		{
+			"StageDesc": "Excavation, Foundation and Footings",
+			"Allowed": 9,
+			"Completed": 0,
+			"TotalCompleted": ""
+		},
+		{
+			"StageDesc": "Damproof and Backfill",
+			"Allowed": 3,
+			"Completed": 0,
+			"TotalCompleted": ""
+		},
+		{
+			"StageDesc": "Framing and Sheathing",
+			"Allowed": 15,
+			"Completed": 0,
+			"TotalCompleted": ""
+		},
+		{
+			"StageDesc": "Roofing",
+			"Allowed": 6,
+			"Completed": 0,
+			"TotalCompleted": ""
+		},
+		{
+			"StageDesc": "Exterior Doors and Garage Doors",
+			"Allowed": 2,
+			"Completed": 0,
+			"TotalCompleted": ""
+		},
+		{
+			"StageDesc": "Windows and Skylight",
+			"Allowed": 4,
+			"Completed": 0,
+			"TotalCompleted": ""
+		},
+		{
+			"StageDesc": "Rough Electrical",
+			"Allowed": 4,
+			"Completed": 0,
+			"TotalCompleted": ""
+		},
+		{
+			"StageDesc": "Rough Plumbing",
+			"Allowed": 3,
+			"Completed": 0,
+			"TotalCompleted": ""
+		},
+		{
+			"StageDesc": "Insulation",
+			"Allowed": 2,
+			"Completed": 0,
+			"TotalCompleted": ""
+		},
+		{
+			"StageDesc": "Exterior Finish",
+			"Allowed": 9,
+			"Completed": 0,
+			"TotalCompleted": ""
+		},
+		{
+			"StageDesc": "Rough Heating",
+			"Allowed": 2,
+			"Completed": 0,
+			"TotalCompleted": ""
+		},
+		{
+			"StageDesc": "Basement Floor",
+			"Allowed": 2,
+			"Completed": 0,
+			"TotalCompleted": ""
+		},
+		{
+			"StageDesc": "Drywall",
+			"Allowed": 8,
+			"Completed": 0,
+			"TotalCompleted": ""
+		},
+		{
+			"StageDesc": "Heating Equipment",
+			"Allowed": 4,
+			"Completed": 0,
+			"TotalCompleted": ""
+		},
+		{
+			"StageDesc": "Interior Doors and Frames",
+			"Allowed": 2,
+			"Completed": 0,
+			"TotalCompleted": ""
+		},
+		{
+			"StageDesc": "Finished Floors",
+			"Allowed": 4,
+			"Completed": 0,
+			"TotalCompleted": ""
+		},
+		{
+			"StageDesc": "Finished Electrical",
+			"Allowed": 1,
+			"Completed": 0,
+			"TotalCompleted": ""
+		},
+		{
+			"StageDesc": "Finished Plumbing",
+			"Allowed": 3,
+			"Completed": 0,
+			"TotalCompleted": ""
+		},
+		{
+			"StageDesc": "Finished Carpentry",
+			"Allowed": 3,
+			"Completed": 0,
+			"TotalCompleted": ""
+		},
+		{
+			"StageDesc": "Cabinetry",
+			"Allowed": 7,
+			"Completed": 0,
+			"TotalCompleted": ""
+		},
+		{
+			"StageDesc": "Painting",
+			"Allowed": 4,
+			"Completed": 0,
+			"TotalCompleted": ""
+		},
+		{
+			"StageDesc": "Walks, Driveway, Final Grading and Landscaping",
+			"Allowed": 3,
+			"Completed": 0,
+			"TotalCompleted": ""
+		}
+	]
+}

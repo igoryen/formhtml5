@@ -1,0 +1,137 @@
+{
+    "_note_to_developer_": "This file must be saved using `ISO-8859-1` text encoding so that French accented letters will work properly.",
+	"records": [
+		{
+			"StageDesc": "Excavation, Fondation et Bases",
+			"Allowed": 9,
+			"Completed": 0,
+			"TotalCompleted": ""
+		},
+		{
+			"StageDesc": "Étanchement et Remblayage",
+			"Allowed": 3,
+			"Completed": 0,
+			"TotalCompleted": ""
+		},
+		{
+			"StageDesc": "Encadrement et revêtement mural intermédiaire",
+			"Allowed": 15,
+			"Completed": 0,
+			"TotalCompleted": ""
+		},
+		{
+			"StageDesc": "Toiture",
+			"Allowed": 6,
+			"Completed": 0,
+			"TotalCompleted": ""
+		},
+		{
+			"StageDesc": "Portes extérieures et portes de garage",
+			"Allowed": 2,
+			"Completed": 0,
+			"TotalCompleted": ""
+		},
+		{
+			"StageDesc": "Fenêtres et Lucarne",
+			"Allowed": 4,
+			"Completed": 0,
+			"TotalCompleted": ""
+		},
+		{
+			"StageDesc": "Installation électronique primaire",
+			"Allowed": 4,
+			"Completed": 0,
+			"TotalCompleted": ""
+		},
+		{
+			"StageDesc": "Plomberie primaire",
+			"Allowed": 3,
+			"Completed": 0,
+			"TotalCompleted": ""
+		},
+		{
+			"StageDesc": "Isolation",
+			"Allowed": 2,
+			"Completed": 0,
+			"TotalCompleted": ""
+		},
+		{
+			"StageDesc": "Revêtement extérieur",
+			"Allowed": 9,
+			"Completed": 0,
+			"TotalCompleted": ""
+		},
+		{
+			"StageDesc": "Chauffage préliminaire",
+			"Allowed": 2,
+			"Completed": 0,
+			"TotalCompleted": ""
+		},
+		{
+			"StageDesc": "Plancher de sous-sol",
+			"Allowed": 2,
+			"Completed": 0,
+			"TotalCompleted": ""
+		},
+		{
+			"StageDesc": "Lattes",
+			"Allowed": 8,
+			"Completed": 0,
+			"TotalCompleted": ""
+		},
+		{
+			"StageDesc": "Installation de chauffage",
+			"Allowed": 4,
+			"Completed": 0,
+			"TotalCompleted": ""
+		},
+		{
+			"StageDesc": "Portes intérieures et cadres",
+			"Allowed": 2,
+			"Completed": 0,
+			"TotalCompleted": ""
+		},
+		{
+			"StageDesc": "Planchers finis",
+			"Allowed": 4,
+			"Completed": 0,
+			"TotalCompleted": ""
+		},
+		{
+			"StageDesc": "Électrique finis",
+			"Allowed": 1,
+			"Completed": 0,
+			"TotalCompleted": ""
+		},
+		{
+			"StageDesc": "Plomberie finis",
+			"Allowed": 3,
+			"Completed": 0,
+			"TotalCompleted": ""
+		},
+		{
+			"StageDesc": "Menuiserie de finition",
+			"Allowed": 3,
+			"Completed": 0,
+			"TotalCompleted": ""
+		},
+		{
+			"StageDesc": "Armoires",
+			"Allowed": 7,
+			"Completed": 0,
+			"TotalCompleted": ""
+		},
+		{
+			"StageDesc": "Peinture",
+			"Allowed": 4,
+			"Completed": 0,
+			"TotalCompleted": ""
+		},
+		{
+			"StageDesc": "Marches, entrée, « final grading » et aménagement paysager",
+			"Allowed": 3,
+			"Completed": 0,
+			"TotalCompleted": ""
+		}
+	]
+}

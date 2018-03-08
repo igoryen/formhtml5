@@ -1,0 +1,1228 @@
+#title_area::before {
+  content: "1920px";
+  color: red;
+  font-size: 20px; }
+
+fieldset {
+  /*  background-image: url(/NAS/Themes/fieldset_background.png); */
+  background-color: white;
+  background-position: top;
+  background-repeat: repeat-x;
+  border-color: threedface;
+  border-image: initial;
+  border-style: groove;
+  border-width: 2px;
+  margin: 0 0 0 0;
+  padding: 10px; }
+  fieldset legend {
+    background-image: url(/NAS/Themes/legend_background.png);
+    background-position: top;
+    background-repeat: repeat-x;
+    color: #fff;
+    font-size: 100%;
+    font-weight: bold;
+    height: 24px;
+    margin-bottom: 0px !important;
+    padding-top: 2px;
+    text-transform: uppercase;
+    width: 100%; }
+
+label {
+  font-family: "PT Sans Narrow", sans-serif;
+  font-weight: normal;
+  margin-bottom: 0;
+  margin-right: 10px;
+  margin-top: 2px;
+  text-transform: uppercase;
+  white-space: nowrap; }
+  label.lower-case {
+    text-transform: lowercase; }
+  label.capitalized {
+    text-transform: capitalize; }
+  label span.capitalized {
+    font-family: "PT Sans Narrow", sans-serif;
+    text-transform: capitalize; }
+
+textarea {
+  line-height: 1.5em;
+  margin-top: 1em;
+  width: 100%;
+  margin-bottom: 1em; }
+
+input, select {
+  margin-bottom: 5px; }
+
+img[src*="popcalendar"] {
+  margin-left: 5px;
+  height: 1.5em; }
+
+input[type="text"], select, textarea {
+  background-color: #dee5ff;
+  border: 1px solid #dee5ff; }
+  input[type="text"]:hover, select:hover, textarea:hover {
+    border: solid 1px black; }
+  input[type="text"]:focus, select:focus, textarea:focus {
+    background-color: #fff;
+    border: solid 1px #dee5ff; }
+
+.reportSectionGroup {
+  border: 0px;
+  display: flex;
+  width: 100%; }
+  .reportSectionGroup fieldset {
+    border-color: threedface;
+    border-image: initial;
+    border-style: groove;
+    border-width: 2px;
+    border: 0 5px 0 0;
+    flex-grow: 1; }
+
+.reportSection .report-section-columns-group {
+  display: flex;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black; }
+  .reportSection .report-section-columns-group > div:first-of-type {
+    border-right: 1px solid black; }
+  .reportSection .report-section-columns-group > div:nth-child(2) {
+    margin-left: 1em; }
+  .reportSection .report-section-columns-group .report-section-column {
+    flex-grow: 1; }
+    .reportSection .report-section-columns-group .report-section-column.aligned label {
+      min-width: 10em; }
+    .reportSection .report-section-columns-group .report-section-column.aligned select {
+      width: 100%; }
+.reportSection .form-row, .reportSection .note, .reportSection .rowsOfInputsGroup-container, .reportSection .rowsOfInputsGroup {
+  margin-left: 0.5em; }
+.reportSection .form-row {
+  margin-right: 1em;
+  display: block;
+  text-align: left;
+  display: flex; }
+  .reportSection .form-row input {
+    padding-left: 8px; }
+    .reportSection .form-row input[id="file_number"] {
+      outline: none;
+      background-color: #eff0f1;
+      width: 100px;
+      text-align: center; }
+  .reportSection .form-row input[type="radio"], .reportSection .form-row input[type="checkbox"] {
+    max-width: 3%; }
+  .reportSection .form-row .inputsGrouped {
+    flex-grow: 1;
+    display: flex;
+    width: 100%; }
+    .reportSection .form-row .inputsGrouped.wrapping {
+      flex-wrap: wrap;
+      justify-content: flex-start; }
+      .reportSection .form-row .inputsGrouped.wrapping label {
+        text-transform: capitalize;
+        /* add labels to all the click-inputs and then use this setting on the label*/ }
+    .reportSection .form-row .inputsGrouped input {
+      flex-grow: 1;
+      margin-right: 3px;
+      margin-left: 1em; }
+      .reportSection .form-row .inputsGrouped input[id^="mls_district"] {
+        width: 15%; }
+  .reportSection .form-row.aligned label {
+    text-transform: capitalize;
+    margin-right: 1em; }
+    .reportSection .form-row.aligned label:first-of-type {
+      min-width: 10em;
+      margin-right: 0.5em; }
+    .reportSection .form-row.aligned label input {
+      margin-right: 3px; }
+.reportSection .grouped {
+  display: flex; }
+  .reportSection .grouped .form-row {
+    margin-right: 1em;
+    text-align: left;
+    flex-grow: 1; }
+    .reportSection .grouped .form-row input, .reportSection .grouped .form-row select {
+      width: 100%; }
+    .reportSection .grouped .form-row input[type="radio"], .reportSection .grouped .form-row input[type="checkbox"] {
+      width: 3%;
+      margin-left: 1em; }
+    .reportSection .grouped .form-row input.first {
+      margin-left: 0;
+      margin-right: 5px; }
+    .reportSection .grouped .form-row label, .reportSection .grouped .form-row input {
+      white-space: nowrap;
+      flex-grow: 1; }
+    .reportSection .grouped .form-row.city input {
+      width: 100%; }
+    .reportSection .grouped .form-row.province select {
+      width: 3em; }
+    .reportSection .grouped .form-row.postalcode {
+      white-space: nowrap; }
+      .reportSection .grouped .form-row.postalcode input {
+        width: 5em; }
+.reportSection .form-row {
+  display: flex;
+  margin-left: 0; }
+  .reportSection .form-row > div:first-of-type {
+    margin-left: 0; }
+  .reportSection .form-row .input-text, .reportSection .form-row .input-binary {
+    margin-left: 10px; }
+    .reportSection .form-row .input-text input, .reportSection .form-row .input-binary input {
+      width: 100%; }
+  .reportSection .form-row .input-text, .reportSection .form-row .inputs-group {
+    flex-grow: 1;
+    display: flex; }
+    .reportSection .form-row .input-text label.no-wrap, .reportSection .form-row .inputs-group label.no-wrap {
+      text-transform: normal; }
+    .reportSection .form-row .input-text input, .reportSection .form-row .inputs-group input {
+      flex-grow: 1; }
+    .reportSection .form-row .input-text div, .reportSection .form-row .inputs-group div {
+      display: flex; }
+  .reportSection .form-row .input-binary input {
+    margin-right: 8px; }
+
+.formDoubleColumn {
+  width: 400px;
+  display: block;
+  float: left;
+  text-align: left; }
+
+/* Form Elements */
+select, textarea {
+  /* background-color: #FFF; 
+  background-image: url(/NAS/Themes/gradient.gif);
+  background-repeat: repeat-x;
+  background-position: top; 
+  */ }
+
+.inputstyle[type="text"][disabled] {
+  /* 
+  background-color: #E0E0E0; 
+  background-image: none;
+  */ }
+
+/* For dotted underlined input box */
+.inputstyle2[type="text"] {
+  border: 0;
+  border-bottom: 1px dotted black;
+  outline: 0; }
+
+/* For input text box inside of table cell */
+.inputstyle3[type="text"] {
+  height: 33px;
+  width: 100%;
+  display: block; }
+
+.fixedWidthLabel {
+  width: 200px; }
+
+.fixedWidthText1 {
+  width: 400px; }
+
+.largeButton {
+  width: 200px;
+  height: 26px;
+  background-image: url(/NAS/Themes/button_large.png);
+  border: none;
+  cursor: pointer;
+  color: #fff; }
+
+.dateInput {
+  max-width: 8em; }
+
+.yearInput {
+  max-width: 5em; }
+
+.costInput {
+  max-width: 10em; }
+
+.note {
+  font-size: 10px;
+  font-weight: bold;
+  font-style: italic; }
+
+.length-units {
+  max-width: 8em; }
+
+.other-long {
+  max-width: 14em; }
+
+#title_area {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1em;
+  background: white;
+  opacity: 0.9; }
+  #title_area div {
+    flex-grow: 1; }
+    #title_area div:nth-child(2) {
+      margin: 1em 0;
+      font-size: 14px; }
+    #title_area div:nth-child(3) {
+      margin-left: 2em;
+      margin-right: 2em; }
+  #title_area .control-icon img {
+    width: 4em; }
+
+#hidden_client_field {
+  border: 0px;
+  background-color: #fff; }
+
+#client div:nth-child(5) .input-text {
+  flex-grow: 1; }
+
+#appraiser div:nth-child(6) .input-text {
+  flex-grow: 1; }
+
+#client .form-row .input-text.province, #appraiser .form-row .input-text.province, #property .form-row .input-text.province {
+  flex-grow: 0; }
+  #client .form-row .input-text.province select, #client .form-row .input-text.province input, #appraiser .form-row .input-text.province select, #appraiser .form-row .input-text.province input, #property .form-row .input-text.province select, #property .form-row .input-text.province input {
+    width: 4em; }
+#client .form-row .input-text.postal-code, #appraiser .form-row .input-text.postal-code, #property .form-row .input-text.postal-code {
+  flex-grow: 0; }
+  #client .form-row .input-text.postal-code input, #appraiser .form-row .input-text.postal-code input, #property .form-row .input-text.postal-code input {
+    width: 6em; }
+
+#property > div:nth-child(4) .inputs-group label, #property > div:nth-child(5) .inputs-group label {
+  text-transform: capitalize; }
+#property > div:nth-child(6) .input-binary label span {
+  text-transform: lowercase; }
+#property > div:nth-child(7) .input-binary label {
+  text-transform: capitalize; }
+#property > div:nth-child(8) label span {
+  text-transform: lowercase; }
+#property > div:nth-child(8) .input-binary label {
+  text-transform: capitalize; }
+#property > div:nth-child(9) > div:last-child label {
+  text-transform: lowercase; }
+#property > div:nth-child(10) .input-text label, #property > div:nth-child(10) .input-binary label {
+  text-transform: capitalize; }
+#property > div:nth-child(10) > div:first-of-type label {
+  text-transform: uppercase; }
+#property > div:nth-child(12) > div:nth-child(2) label span {
+  text-transform: lowercase; }
+#property > div:nth-child(13) .input-text label {
+  text-transform: capitalize; }
+#property > div:nth-child(13) > div:first-of-type label {
+  text-transform: uppercase; }
+#property .date {
+  flex-grow: 0; }
+  #property .date input {
+    width: 7em; }
+#property .year {
+  flex-grow: 0; }
+  #property .year input, #property .year select {
+    width: 5em; }
+#property .money {
+  flex-grow: 0; }
+  #property .money input {
+    width: 15em; }
+#property div:nth-child(10) .input-text {
+  flex-grow: 0; }
+
+#property_rights_appraised {
+  width: 10em; }
+
+.report-section-column {
+  margin-top: 5px; }
+
+#neighbourhood .report-section-columns-group #column1 .form-row label:first-of-type {
+  width: 7em;
+  min-width: 7em; }
+#neighbourhood .report-section-columns-group #column1 .form-row .input-binary {
+  width: 5.6em; }
+  #neighbourhood .report-section-columns-group #column1 .form-row .input-binary label {
+    text-transform: capitalize; }
+#neighbourhood .report-section-columns-group #column1 .form-row div:last-child {
+  display: flex;
+  width: 100%; }
+#neighbourhood .report-section-columns-group #column1 .form-row .inputs-group div:last-child {
+  display: flex;
+  width: 100%; }
+  #neighbourhood .report-section-columns-group #column1 .form-row .inputs-group div:last-child .input-binary {
+    width: 4em; }
+#neighbourhood .report-section-columns-group #column2 > div:first-of-type .input-text input {
+  width: 3em; }
+#neighbourhood .report-section-columns-group #column2 > div:first-of-type div:nth-child(2) label {
+  text-transform: lowercase; }
+#neighbourhood .report-section-columns-group #column2 > div:first-of-type div:nth-child(2) input {
+  margin-right: 10px; }
+#neighbourhood .report-section-columns-group #column2 .money input {
+  width: 10em; }
+#neighbourhood .report-section-columns-group > div:nth-child(2) > div:nth-child(3) .input-binary label {
+  text-transform: capitalize; }
+#neighbourhood .report-section-columns-group > div:nth-child(2) > div:nth-child(4) > div:nth-child(3) label {
+  text-transform: lowercase; }
+#neighbourhood .report-section-columns-group > div:nth-child(2) > div:nth-child(5) .input-binary label {
+  text-transform: capitalize; }
+#neighbourhood > div:nth-child(3) label {
+  text-transform: capitalize; }
+#neighbourhood .rowsOfInputsGroup-container {
+  margin-left: 0;
+  display: flex; }
+  #neighbourhood .rowsOfInputsGroup-container input, #neighbourhood .rowsOfInputsGroup-container .inputs-row-label, #neighbourhood .rowsOfInputsGroup-container .rowsOfInputsGroup {
+    flex-grow: 1; }
+  #neighbourhood .rowsOfInputsGroup-container .rowsOfInputsGroup, #neighbourhood .rowsOfInputsGroup-container .inputs-grouped {
+    flex-grow: 1; }
+  #neighbourhood .rowsOfInputsGroup-container .inputs-row {
+    display: flex; }
+    #neighbourhood .rowsOfInputsGroup-container .inputs-row label:first-of-type {
+      width: 3.3em; }
+    #neighbourhood .rowsOfInputsGroup-container .inputs-row .input-binary {
+      margin-left: 10px;
+      width: 4.2em; }
+      #neighbourhood .rowsOfInputsGroup-container .inputs-row .input-binary label {
+        text-transform: capitalize; }
+      #neighbourhood .rowsOfInputsGroup-container .inputs-row .input-binary input {
+        margin-right: 8px; }
+  #neighbourhood .rowsOfInputsGroup-container .rowsOfInputsGroup, #neighbourhood .rowsOfInputsGroup-container .inputs-grouped {
+    width: 100%; }
+  #neighbourhood .rowsOfInputsGroup-container .inputs-grouped {
+    margin-left: 2%; }
+  #neighbourhood .rowsOfInputsGroup-container .inputs-row-label {
+    width: 40px; }
+#neighbourhood > div:last-child {
+  flex-wrap: wrap; }
+
+#site > div:nth-child(1) .report-section-column {
+  width: 48%; }
+#site > div:nth-child(1) > div:first-of-type > div:first-of-type .input-text {
+  flex-grow: 0; }
+  #site > div:nth-child(1) > div:first-of-type > div:first-of-type .input-text input {
+    width: 6em; }
+#site > div:nth-child(1) > div:first-of-type > div:first-of-type .inputs-group .input-binary label {
+  text-transform: capitalize; }
+#site > div:nth-child(1) > div:first-of-type > div:nth-child(6) select {
+  width: 15em; }
+#site > div:nth-child(1) > div:first-of-type > div:nth-child(7) .inputs-group .input-binary label {
+  text-transform: capitalize; }
+#site > div:nth-child(1) > div:first-of-type > div:nth-child(8) .input-binary label {
+  text-transform: capitalize; }
+#site > div:nth-child(1) > div:nth-child(2) .form-row > label {
+  width: 6.2em; }
+#site > div:nth-child(1) > div:nth-child(2) .form-row .inputs-group {
+  width: 100%;
+  flex-wrap: wrap; }
+  #site > div:nth-child(1) > div:nth-child(2) .form-row .inputs-group .input-binary label {
+    text-transform: capitalize;
+    width: 6.3em; }
+  #site > div:nth-child(1) > div:nth-child(2) .form-row .inputs-group > div:last-child {
+    display: flex; }
+    #site > div:nth-child(1) > div:nth-child(2) .form-row .inputs-group > div:last-child .input-binary {
+      width: 4em; }
+#site > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) .inputs-group > div:last-child .input-binary,
+#site > div:nth-child(1) > div:nth-child(2) > div:nth-child(7) .inputs-group > div:last-child .input-binary {
+  width: 8em; }
+#site > div:nth-child(3) .input-text input {
+  width: 4em;
+  flex-grow: 0; }
+#site > div:nth-child(3) .input-text label:last-child {
+  margin-left: 0.5em; }
+#site > div:nth-child(5) .report-section-column {
+  width: 33.33333333%; }
+#site > div:nth-child(5) > div:nth-child(2) {
+  border-right: 1px solid black; }
+  #site > div:nth-child(5) > div:nth-child(2) .input-text label {
+    min-width: 6.5em; }
+  #site > div:nth-child(5) > div:nth-child(2) .input-text select {
+    width: 100%; }
+#site > div:nth-child(5) > div:nth-child(3) {
+  padding-left: 1em; }
+  #site > div:nth-child(5) > div:nth-child(3) > div:nth-child(1) select,
+  #site > div:nth-child(5) > div:nth-child(3) > div:nth-child(3) select {
+    width: 100%; }
+  #site > div:nth-child(5) > div:nth-child(3) > div:nth-child(2) label, #site > div:nth-child(5) > div:nth-child(3) > div:nth-child(4) label, #site > div:nth-child(5) > div:nth-child(3) > div:nth-child(6) label, #site > div:nth-child(5) > div:nth-child(3) > div:nth-child(7) label, #site > div:nth-child(5) > div:nth-child(3) > div:nth-child(8) label, #site > div:nth-child(5) > div:nth-child(3) > div:nth-child(9) label {
+    text-transform: capitalize; }
+  #site > div:nth-child(5) > div:nth-child(3) > div:nth-child(2) > label:first-of-type, #site > div:nth-child(5) > div:nth-child(3) > div:nth-child(4) > label:first-of-type, #site > div:nth-child(5) > div:nth-child(3) > div:nth-child(6) > label:first-of-type, #site > div:nth-child(5) > div:nth-child(3) > div:nth-child(7) > label:first-of-type, #site > div:nth-child(5) > div:nth-child(3) > div:nth-child(8) > label:first-of-type, #site > div:nth-child(5) > div:nth-child(3) > div:nth-child(9) > label:first-of-type {
+    text-transform: uppercase;
+    width: 3.3em;
+    min-width: 3.3em; }
+
+#comparables {
+        /*
+            .tables-group {
+                display: flex;
+                .table {
+                    width: 24.5%;
+                }
+            }
+            .form-row {
+                margin-right: 3px;
+            }
+            thead {
+                tr {
+                    color:#054877;
+                    th {
+                        text-align: center; 
+                        font-weight: bold;
+                    }
+                }
+            }
+            tbody {
+
+
+                tr {
+                    > td:first-child {
+                        font-weight: bold;
+                        vertical-align: middle;
+                    }
+                    
+                    td {
+                        padding: 1px;
+                        // display: flex;
+                        .form-row {
+                            display: flex;
+                            .input-text {
+                                flex-grow: 1;
+                                margin-left: 5px;
+                                input, select {
+                                    width: 100%;    
+                                }
+                            }
+                            > div:first-child {
+                                margin-left: 0;
+                            }
+                        }
+                    }
+                }
+                // specific styles:
+                // table row 1, 2
+                // > tr:first-child, 
+
+                // table row 1
+                > tr:nth-child(1) {
+                    // not "subject" cell
+                    td:not(:nth-child(2)) {
+                        .form-row {
+                            // the "street number" cell
+                            > div:nth-child(1) {
+                                flex-grow: 0;
+                                input {
+                                    width: 5em;
+                                }
+                                
+                            }
+                        }
+                    }
+                }
+                // labels
+                > tr:nth-child(13) {
+                    // background-color: pink;
+                    td {
+                        // padding: 0;
+                        // vertical-align: middle;
+                        .labels-group {
+                            display: flex;
+                            label {
+                                flex-grow: 1;
+                                text-align: center;
+                                text-transform: capitalize;
+                                width: 100%;
+                                // margin: 0;
+                            }     
+                            label:nth-child(2) {
+                                // border-left: 1px solid black;
+                            }                  
+                        }
+
+                    }
+                }
+                > tr:nth-child(16),> tr:nth-child(18) {
+                    td {
+                        .form-row {
+                            .input-text {
+                                input[type="button"] {
+                                    width: 2.5em;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            // "has the subject property been sold..."
+            > div:nth-child(3) {
+                // background-color: lightblue;
+                label {
+                    text-transform: none;
+                }
+            }
+            > div:nth-child(5) {
+                // background-color: yellow;
+                flex-wrap: wrap;
+                label {
+                    text-transform: capitalize;
+                }
+
+                .inputs-group {
+                    // margin-left: 1em;
+                    width: 100%;
+                    .input-binary {
+                        label {
+                            min-width: 10em;
+                            text-transform: none;
+                            width: 10em;
+                        }
+                    }
+                }
+            }
+            */
+  /* Table column sizing
+  ================================== */
+  /* Apply styles
+  ================================== */
+  /* Cell styles
+  ================================== */
+  /* Responsive
+  ==================================== */ }
+  #comparables img[src*="popcalendar"] {
+    margin-top: 0.3em; }
+  #comparables .form-row {
+    margin-right: 3px;
+    display: flex; }
+    #comparables .form-row .input-text {
+      flex-grow: 1;
+      margin-left: 5px; }
+      #comparables .form-row .input-text input, #comparables .form-row .input-text select {
+        width: 100%; }
+      #comparables .form-row .input-text input[id^="stnbr_comp"] {
+        width: 5em;
+        max-width: 5em; }
+    #comparables .form-row > div:first-child {
+      margin-left: 0; }
+  #comparables .Rtable input, #comparables .Rtable select {
+    height: 30px;
+    font-family: "PT Sans Narrow", sans-serif;
+    margin-top: 2px;
+    margin-bottom: 4px; }
+  #comparables .Rtable .form-row {
+    margin-right: 6px;
+    margin-left: 3px; }
+  #comparables .Rtable.Rtable-outer-collapse > .Rtable-cell {
+    border-bottom: 0; }
+  #comparables .Rtable.Rtable-outer-collapse > div:last-child .Rtable .comparable3 {
+    border-right: 1px solid black; }
+  #comparables .Rtable .Rtable > div:first-child label {
+    margin-bottom: 0.3em; }
+  #comparables .Rtable .Rtable > div:first-child.subject label {
+    margin-left: auto;
+    margin-right: auto; }
+  #comparables .Rtable .Rtable .Rtable-cell {
+    border-left: 1px solid black; }
+    #comparables .Rtable .Rtable .Rtable-cell.subject {
+      display: flex; }
+      #comparables .Rtable .Rtable .Rtable-cell.subject > div:first-child {
+        width: 10em; }
+        #comparables .Rtable .Rtable .Rtable-cell.subject > div:first-child label {
+          padding-left: 5px;
+          padding-top: 0.2em;
+          width: 10em; }
+        #comparables .Rtable .Rtable .Rtable-cell.subject > div:first-child .form-row {
+          padding-left: 5px;
+          width: 9em; }
+      #comparables .Rtable .Rtable .Rtable-cell.subject > div:nth-child(2) {
+        min-width: 9em; }
+      #comparables .Rtable .Rtable .Rtable-cell.subject > div:last-child {
+        flex-grow: 1; }
+    #comparables .Rtable .Rtable .Rtable-cell.Rtable-cell--head {
+      text-align: center;
+      font-weight: bold;
+      border-top: 1px solid black; }
+  #comparables .Rtable .Rtable > div:nth-child(7).subject > div:nth-child(2) .input-text input {
+    min-width: 8em; }
+  #comparables .Rtable .Rtable > div:nth-child(10) .input-text, #comparables .Rtable .Rtable > div:nth-child(32) .input-text {
+    min-width: 9em; }
+  #comparables .Rtable .Rtable > div:nth-child(10).subject .input-text, #comparables .Rtable .Rtable > div:nth-child(32).subject .input-text {
+    min-width: 3em; }
+  #comparables .Rtable .Rtable > div:nth-child(10) .form-row > div:nth-child(2) label, #comparables .Rtable .Rtable > div:nth-child(32) .form-row > div:nth-child(2) label {
+    margin-left: 4px; }
+  #comparables .Rtable .Rtable > div:nth-child(14) .input-text select, #comparables .Rtable .Rtable > div:nth-child(36) .input-text select {
+    min-width: 4em; }
+  #comparables .Rtable .Rtable > div:nth-child(17).subject > div:nth-child(2) input:first-child {
+    min-width: 8em; }
+  #comparables .Rtable .Rtable > div:nth-child(21).subject .form-row, #comparables .Rtable .Rtable > div:nth-child(22).subject .form-row {
+    width: 10em; }
+    #comparables .Rtable .Rtable > div:nth-child(21).subject .form-row input, #comparables .Rtable .Rtable > div:nth-child(22).subject .form-row input {
+      padding-left: 5px; }
+  #comparables .Rtable > div[style="order:1;"]:not(.subject) .form-row div:first-child {
+    flex-grow: 0; }
+  #comparables .Rtable .labels-group {
+    display: flex; }
+    #comparables .Rtable .labels-group label {
+      flex-grow: 1;
+      padding-bottom: 0.3em;
+      text-align: center;
+      text-transform: capitalize;
+      width: 100%; }
+  #comparables .Rtable > div[style="order:16;"] .form-row .input-text input[type="button"], #comparables .Rtable > div[style="order:18;"] .form-row .input-text input[type="button"] {
+    width: 2.5em; }
+  #comparables tbody tr td {
+    padding: 1px; }
+  #comparables > div:nth-child(3) label {
+    text-transform: none; }
+  #comparables > div:nth-child(5) {
+    flex-wrap: wrap; }
+    #comparables > div:nth-child(5) label {
+      text-transform: capitalize; }
+    #comparables > div:nth-child(5) .inputs-group {
+      width: 100%; }
+      #comparables > div:nth-child(5) .inputs-group .input-binary label {
+        min-width: 10em;
+        text-transform: none;
+        width: 10em; }
+  #comparables .Rtable {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0; }
+  #comparables .Rtable-cell {
+    box-sizing: border-box;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    width: 100%;
+    padding: 1px;
+    overflow: hidden;
+    list-style: none; }
+  #comparables .Rtable-cell > h1, #comparables .Rtable-cell > h2, #comparables .Rtable-cell > h3, #comparables .Rtable-cell > h4, #comparables .Rtable-cell > h5, #comparables .Rtable-cell > h6 {
+    margin: 0; }
+  #comparables .Rtable--2cols > .Rtable-cell {
+    width: 50%; }
+  #comparables .Rtable--3cols > .Rtable-cell {
+    width: 33.33%; }
+  #comparables .Rtable--4cols > .Rtable-cell {
+    width: 25%; }
+  #comparables .Rtable--5cols > .Rtable-cell {
+    width: 20%; }
+  #comparables .Rtable--6cols > .Rtable-cell {
+    width: 16.6%; }
+  #comparables .Rtable {
+    position: relative;
+    top: 3px;
+    left: 3px; }
+  #comparables .Rtable-cell {
+    margin: -3px 2px 3px -4px;
+    border-color: black;
+    border-bottom: 1px solid black; }
+  #comparables .Rtable-cell--dark {
+    background-color: slategrey;
+    border-color: #5a6673;
+    color: white; }
+    #comparables .Rtable-cell--dark > h1, #comparables .Rtable-cell--dark > h2, #comparables .Rtable-cell--dark > h3, #comparables .Rtable-cell--dark > h4, #comparables .Rtable-cell--dark > h5, #comparables .Rtable-cell--dark > h6 {
+      color: white; }
+  #comparables .Rtable-cell--medium {
+    background-color: #b8c0c8;
+    border-color: #a9b3bc; }
+  #comparables .Rtable-cell--light {
+    background-color: white;
+    border-color: #e2e6e9; }
+  #comparables .Rtable-cell--highlight {
+    background-color: lightgreen;
+    border-color: #64e764; }
+  #comparables .Rtable-cell--alert {
+    background-color: darkorange;
+    border-color: #cc7000;
+    color: white; }
+  #comparables .Rtable-cell--alert > h1, #comparables .Rtable-cell--alert > h2, #comparables .Rtable-cell--alert > h3, #comparables .Rtable-cell--alert > h4, #comparables .Rtable-cell--alert > h5, #comparables .Rtable-cell--alert > h6 {
+    color: white; }
+  #comparables .Rtable-cell--foot {
+    background-color: #b8c0c8;
+    border-color: #a9b3bc; }
+
+/* debugging */
+.m-signature-pad--body {
+  display: flex;
+  align-items: center;
+  margin-right: 1em; }
+  .m-signature-pad--body label {
+    margin: 1em; }
+  .m-signature-pad--body canvas {
+    flex-grow: 1;
+    border: 1px solid black; }
+
+.m-signature-pad--footer {
+  display: flex;
+  align-items: center;
+  margin: 1em; }
+  .m-signature-pad--footer .footer-element {
+    flex-grow: 1;
+    text-align: center;
+    margin: 0 1em; }
+    .m-signature-pad--footer .footer-element.btn {
+      min-height: 3em; }
+  .m-signature-pad--footer .lock-icon img {
+    width: 3em; }
+
+#certification_tab ol {
+  margin-left: -20px; }
+#certification_tab label {
+  white-space: normal; }
+#certification_tab .signature-password {
+  border: 1px solid black;
+  width: 50%;
+  margin: 1em 0 0 0; }
+  #certification_tab .signature-password label {
+    text-transform: capitalize;
+    margin: 1em; }
+#certification_tab .report-section-columns-group, #certification_tab .report-section-column {
+  border: 0; }
+
+#appraiser_designation_sel, #appraiser_designation {
+  width: 50%; }
+
+label#date_signed_appraiser {
+  white-space: normal; }
+
+img#upload-sig-icon {
+  width: 2em; }
+
+@media screen and (max-width: 1600px) {
+  #title_area::before {
+    content: "1600px";
+    color: red; }
+
+  #land_assessment, #imps_assessment, #total_assessment, #taxes {
+    width: 5em; }
+
+  #mls_district1, #mls_district2, #mls_district3, #mls_district4 {
+    width: 7em; } }
+@media screen and (max-width: 1440px) {
+  #title_area::before {
+    content: "1440px";
+    color: black; }
+
+  #subj_province {
+    width: 4em; }
+
+  #subj_postal_code {
+    width: 5em; } }
+@media screen and (max-width: 1280px) {
+  #title_area::before {
+    content: "1280px";
+    color: red; }
+
+  #file_number {
+    width: 6em; }
+
+  #client_city, #appraiser_city {
+    width: 10em; }
+
+  #property div:nth-child(13) {
+    flex-wrap: wrap;
+    justify-content: flex-start; }
+    #property div:nth-child(13) .input-text {
+      flex-grow: 0; }
+
+  #subj_city {
+    width: 7em; }
+
+  #subj_province {
+    width: 2em; }
+
+  #maintenance_fee {
+    width: 3em; }
+
+  #municipality_district {
+    width: 9em; }
+
+  #taxes {
+    flex-grow: 0; }
+
+  #tax_year {
+    width: 5em; }
+
+  #column1 .form-row {
+    flex-wrap: wrap; }
+
+  #comparables .Rtable > div:nth-child(1) .Rtable {
+    margin-bottom: 2em; }
+    #comparables .Rtable > div:nth-child(1) .Rtable .Rtable-cell.comparable1 {
+      border-right: 1px solid black; }
+  #comparables .Rtable > div:last-child .Rtable .Rtable-cell.comparable2 {
+    border-left: 1px solid black; }
+  #comparables .Rtable .Rtable div[class*="comparable2"] {
+    /* Behave  like a "row" */
+    position: relative; }
+    #comparables .Rtable .Rtable div[class*="comparable2"] .form-row, #comparables .Rtable .Rtable div[class*="comparable2"] .labels-group {
+      padding-left: 10.5em; }
+    #comparables .Rtable .Rtable div[class*="comparable2"]::before {
+      /* Now like a table header */
+      position: absolute;
+      /* Top/left values mimic padding */
+      top: 6px;
+      left: 6px;
+      width: 10em;
+      padding-right: 10px;
+      white-space: nowrap;
+      font-family: "PT Sans Narrow", sans-serif;
+      text-transform: uppercase; }
+    #comparables .Rtable .Rtable div[class*="comparable2"][style="order:1;"]:before {
+      content: "Property address"; }
+    #comparables .Rtable .Rtable div[class*="comparable2"][style="order:3;"]:before {
+      content: "City - Prov"; }
+    #comparables .Rtable .Rtable div[class*="comparable2"][style="order:4;"]:before {
+      content: "postal code"; }
+    #comparables .Rtable .Rtable div[class*="comparable2"][style="order:5;"]:before {
+      content: "approx. dist. from sub."; }
+    #comparables .Rtable .Rtable div[class*="comparable2"][style="order:6;"]:before {
+      content: "date of sale"; }
+    #comparables .Rtable .Rtable div[class*="comparable2"][style="order:7;"]:before {
+      content: "sale price"; }
+    #comparables .Rtable .Rtable div[class*="comparable2"][style="order:8;"]:before {
+      content: "days on market"; }
+    #comparables .Rtable .Rtable div[class*="comparable2"][style="order:9;"]:before {
+      content: "site size"; }
+    #comparables .Rtable .Rtable div[class*="comparable2"][style="order:10;"]:before {
+      content: "building type"; }
+    #comparables .Rtable .Rtable div[class*="comparable2"][style="order:11;"]:before {
+      content: "design/style"; }
+    #comparables .Rtable .Rtable div[class*="comparable2"][style="order:12;"]:before {
+      content: "age/condition"; }
+    #comparables .Rtable .Rtable div[class*="comparable2"][style="order:13;"]:before {
+      content: "gross living area"; }
+    #comparables .Rtable .Rtable div[class*="comparable2"][style="order:14;"]:before {
+      content: ""; }
+    #comparables .Rtable .Rtable div[class*="comparable2"][style="order:15;"]:before {
+      content: "room count"; }
+    #comparables .Rtable .Rtable div[class*="comparable2"][style="order:16;"]:before {
+      content: "bathroom count"; }
+    #comparables .Rtable .Rtable div[class*="comparable2"][style="order:17;"]:before {
+      content: "basement"; }
+    #comparables .Rtable .Rtable div[class*="comparable2"][style="order:18;"]:before {
+      content: "parking"; }
+    #comparables .Rtable .Rtable div[class*="comparable2"][style="order:19;"]:before {
+      content: "driveway"; }
+    #comparables .Rtable .Rtable div[class*="comparable2"][style="order:20;"]:before {
+      content: "extra 1"; }
+    #comparables .Rtable .Rtable div[class*="comparable2"][style="order:21;"]:before {
+      content: "extra 2"; }
+  #comparables .Rtable-outer-collapse {
+    display: block; }
+    #comparables .Rtable-outer-collapse > .Rtable-cell {
+      width: 100% !important; }
+    #comparables .Rtable-outer-collapse > .Rtable-cell--foot {
+      margin-bottom: 1em; } }
+@media screen and (max-width: 1136px) {
+  #title_area::before {
+    content: "1136px";
+    color: blue; }
+
+  #doc_number {
+    width: 7em; }
+
+  #client div:nth-child(4), #client div:nth-child(5) {
+    flex-wrap: wrap; }
+
+  #appraiser div:nth-child(5), #appraiser div:nth-child(6) {
+    flex-wrap: wrap; }
+
+  #property div:nth-child(2) {
+    flex-wrap: wrap;
+    justify-content: flex-start; }
+    #property div:nth-child(2) .input-text {
+      flex-grow: 1; }
+  #property div:nth-child(8),
+  #property div:nth-child(9),
+  #property div:nth-child(10),
+  #property div:nth-child(12) {
+    flex-wrap: wrap;
+    justify-content: flex-start; }
+    #property div:nth-child(8) .input-text,
+    #property div:nth-child(9) .input-text,
+    #property div:nth-child(10) .input-text,
+    #property div:nth-child(12) .input-text {
+      flex-grow: 0; }
+
+  #subj_province {
+    width: 5em; }
+
+  #subj_postal_code {
+    width: 8em; }
+
+  #maintenance_fee {
+    width: 6em; }
+
+  #neighbourhood .rowsOfInputsGroup-container {
+    flex-wrap: wrap; }
+
+  #column2 div:nth-child(1),
+  #column2 div:nth-child(4) {
+    flex-wrap: wrap; }
+
+  #site .report-section-columns-group > div:nth-child(2) .form-row {
+    flex-wrap: wrap; }
+  #site > div:nth-child(5) > div:nth-child(3) > div:nth-child(2), #site > div:nth-child(5) > div:nth-child(3) > div:nth-child(4), #site > div:nth-child(5) > div:nth-child(3) > div:nth-child(6), #site > div:nth-child(5) > div:nth-child(3) > div:nth-child(7), #site > div:nth-child(5) > div:nth-child(3) > div:nth-child(8), #site > div:nth-child(5) > div:nth-child(3) > div:nth-child(9) {
+    flex-wrap: wrap; } }
+@media screen and (max-width: 1024px) {
+  #title_area::before {
+    content: "1024px";
+    color: green; }
+
+  #column1 .form-row {
+    flex-wrap: nowrap; }
+    #column1 .form-row .inputs-group {
+      flex-wrap: wrap; }
+      #column1 .form-row .inputs-group div:last-child {
+        width: 20em !important; }
+
+  #site .report-section-columns-group > div:first-of-type > div:nth-child(2) > div:first-of-type input {
+    width: 10em; }
+  #site .report-section-columns-group > div:first-of-type div:nth-child(7) {
+    flex-wrap: wrap; }
+    #site .report-section-columns-group > div:first-of-type div:nth-child(7) label {
+      text-transform: capitalize; }
+  #site > div:nth-child(5) > div:nth-child(2) .form-row .input-text {
+    flex-wrap: wrap; } }
+@media screen and (max-width: 960px) {
+  #title_area::before {
+    content: "960px";
+    color: purple; } }
+@media screen and (max-width: 950px) {
+  #title_area::before {
+    content: "950px";
+    color: black; }
+
+  #general .form-row {
+    flex-wrap: wrap;
+    justify-content: flex-start; }
+
+  #site .report-section-columns-group > div:first-of-type > div:nth-child(2) > div:first-of-type input {
+    width: 9em; }
+  #site > div:nth-child(3) {
+    flex-wrap: wrap; }
+  #site > div:nth-child(5) > div:nth-child(3) > div:nth-child(2) .inputs-group, #site > div:nth-child(5) > div:nth-child(3) > div:nth-child(4) .inputs-group, #site > div:nth-child(5) > div:nth-child(3) > div:nth-child(6) .inputs-group, #site > div:nth-child(5) > div:nth-child(3) > div:nth-child(7) .inputs-group, #site > div:nth-child(5) > div:nth-child(3) > div:nth-child(8) .inputs-group, #site > div:nth-child(5) > div:nth-child(3) > div:nth-child(9) .inputs-group {
+    flex-wrap: wrap; }
+
+  #comparables .Rtable > div:nth-child(2) .Rtable > div:nth-child(10) .form-row .input-text {
+    min-width: 0; }
+    #comparables .Rtable > div:nth-child(2) .Rtable > div:nth-child(10) .form-row .input-text input {
+      width: 80%; }
+
+  > div:nth-child(10) {
+    background-color: yellow; }
+    > div:nth-child(10) > div:nth-child(2) {
+      background-color: yellow; } }
+@media screen and (max-width: 860px) {
+  #title_area::before {
+    content: "860px";
+    color: red; }
+
+  #title_area {
+    margin-bottom: 2em; }
+
+  #client-and-appraiser {
+    display: block; }
+
+  #client div:nth-child(5) .input-text {
+    flex-grow: 1; }
+  #client div:nth-child(5) input {
+    max-width: none; }
+
+  #appraiser div:nth-child(6) .input-text {
+    flex-grow: 1; }
+  #appraiser div:nth-child(6) input {
+    max-width: none; }
+
+  #column1 .form-row {
+    flex-wrap: wrap; }
+
+  #site .report-section-columns-group > div:first-of-type > div:nth-child(2),
+  #site .report-section-columns-group > div:first-of-type > div:nth-child(1) {
+    flex-wrap: wrap; }
+  #site > div:nth-child(4) {
+    flex-wrap: wrap; }
+  #site > div:nth-child(5) > div:nth-child(3) > div:nth-child(1) .input-text,
+  #site > div:nth-child(5) > div:nth-child(3) > div:nth-child(3) .input-text {
+    flex-wrap: wrap; } }
+@media screen and (max-width: 768px) {
+  #title_area::before {
+    content: "768px";
+    color: green; }
+
+  #site > div:nth-child(5) {
+    display: block;
+    border-bottom: 0; }
+    #site > div:nth-child(5) .report-section-column {
+      margin-left: 0;
+      border-right: 0;
+      width: auto; }
+    #site > div:nth-child(5) > div:nth-child(1), #site > div:nth-child(5) > div:nth-child(2) {
+      border-bottom: 1px solid black;
+      border-right: 0;
+      margin-bottom: 1em; }
+    #site > div:nth-child(5) > div:nth-child(2) .form-row .input-text {
+      flex-wrap: nowrap; }
+    #site > div:nth-child(5) > div:nth-child(3) {
+      border-bottom: 0;
+      padding-left: 0; }
+      #site > div:nth-child(5) > div:nth-child(3) > div:nth-child(1) .input-text, #site > div:nth-child(5) > div:nth-child(3) > div:nth-child(3) .input-text {
+        flex-wrap: nowrap; }
+
+  #comparables .Rtable > div:nth-child(1) .Rtable {
+    margin-bottom: 0; }
+  #comparables .Rtable .Rtable div[class*="comparable1"], #comparables .Rtable .Rtable div[class*="comparable3"] {
+    /* Behave  like a "row" */
+    position: relative; }
+    #comparables .Rtable .Rtable div[class*="comparable1"] .form-row, #comparables .Rtable .Rtable div[class*="comparable1"] .labels-group, #comparables .Rtable .Rtable div[class*="comparable3"] .form-row, #comparables .Rtable .Rtable div[class*="comparable3"] .labels-group {
+      padding-left: 10.5em; }
+    #comparables .Rtable .Rtable div[class*="comparable1"]::before, #comparables .Rtable .Rtable div[class*="comparable3"]::before {
+      /* Now like a table header */
+      position: absolute;
+      /* Top/left values mimic padding */
+      top: 3px;
+      left: 6px;
+      width: 10em;
+      padding-right: 10px;
+      white-space: nowrap;
+      font-family: "PT Sans Narrow", sans-serif;
+      text-transform: uppercase; }
+    #comparables .Rtable .Rtable div[class*="comparable1"][style="order:1;"]:before, #comparables .Rtable .Rtable div[class*="comparable3"][style="order:1;"]:before {
+      content: "Property address"; }
+    #comparables .Rtable .Rtable div[class*="comparable1"][style="order:3;"]:before, #comparables .Rtable .Rtable div[class*="comparable3"][style="order:3;"]:before {
+      content: "City - Prov"; }
+    #comparables .Rtable .Rtable div[class*="comparable1"][style="order:4;"]:before, #comparables .Rtable .Rtable div[class*="comparable3"][style="order:4;"]:before {
+      content: "postal code"; }
+    #comparables .Rtable .Rtable div[class*="comparable1"][style="order:5;"]:before, #comparables .Rtable .Rtable div[class*="comparable3"][style="order:5;"]:before {
+      content: "approx. dist. from sub."; }
+    #comparables .Rtable .Rtable div[class*="comparable1"][style="order:6;"]:before, #comparables .Rtable .Rtable div[class*="comparable3"][style="order:6;"]:before {
+      content: "date of sale"; }
+    #comparables .Rtable .Rtable div[class*="comparable1"][style="order:7;"]:before, #comparables .Rtable .Rtable div[class*="comparable3"][style="order:7;"]:before {
+      content: "sale price"; }
+    #comparables .Rtable .Rtable div[class*="comparable1"][style="order:8;"]:before, #comparables .Rtable .Rtable div[class*="comparable3"][style="order:8;"]:before {
+      content: "days on market"; }
+    #comparables .Rtable .Rtable div[class*="comparable1"][style="order:9;"]:before, #comparables .Rtable .Rtable div[class*="comparable3"][style="order:9;"]:before {
+      content: "site size"; }
+    #comparables .Rtable .Rtable div[class*="comparable1"][style="order:10;"]:before, #comparables .Rtable .Rtable div[class*="comparable3"][style="order:10;"]:before {
+      content: "building type"; }
+    #comparables .Rtable .Rtable div[class*="comparable1"][style="order:11;"]:before, #comparables .Rtable .Rtable div[class*="comparable3"][style="order:11;"]:before {
+      content: "design/style"; }
+    #comparables .Rtable .Rtable div[class*="comparable1"][style="order:12;"]:before, #comparables .Rtable .Rtable div[class*="comparable3"][style="order:12;"]:before {
+      content: "age/condition"; }
+    #comparables .Rtable .Rtable div[class*="comparable1"][style="order:13;"]:before, #comparables .Rtable .Rtable div[class*="comparable3"][style="order:13;"]:before {
+      content: "gross living area"; }
+    #comparables .Rtable .Rtable div[class*="comparable1"][style="order:14;"]:before, #comparables .Rtable .Rtable div[class*="comparable3"][style="order:14;"]:before {
+      content: ""; }
+    #comparables .Rtable .Rtable div[class*="comparable1"][style="order:15;"]:before, #comparables .Rtable .Rtable div[class*="comparable3"][style="order:15;"]:before {
+      content: "room count"; }
+    #comparables .Rtable .Rtable div[class*="comparable1"][style="order:16;"]:before, #comparables .Rtable .Rtable div[class*="comparable3"][style="order:16;"]:before {
+      content: "bathroom count"; }
+    #comparables .Rtable .Rtable div[class*="comparable1"][style="order:17;"]:before, #comparables .Rtable .Rtable div[class*="comparable3"][style="order:17;"]:before {
+      content: "basement"; }
+    #comparables .Rtable .Rtable div[class*="comparable1"][style="order:18;"]:before, #comparables .Rtable .Rtable div[class*="comparable3"][style="order:18;"]:before {
+      content: "parking"; }
+    #comparables .Rtable .Rtable div[class*="comparable1"][style="order:19;"]:before, #comparables .Rtable .Rtable div[class*="comparable3"][style="order:19;"]:before {
+      content: "driveway"; }
+    #comparables .Rtable .Rtable div[class*="comparable1"][style="order:20;"]:before, #comparables .Rtable .Rtable div[class*="comparable3"][style="order:20;"]:before {
+      content: "extra 1"; }
+    #comparables .Rtable .Rtable div[class*="comparable1"][style="order:21;"]:before, #comparables .Rtable .Rtable div[class*="comparable3"][style="order:21;"]:before {
+      content: "extra 2"; }
+  #comparables .Rtable .Rtable .Rtable-cell {
+    border-right: 1px solid black; }
+    #comparables .Rtable .Rtable .Rtable-cell.subject, #comparables .Rtable .Rtable .Rtable-cell.comparable2 {
+      border-left: 1px solid black !important; }
+    #comparables .Rtable .Rtable .Rtable-cell:not(.subject).Rtable-cell--head {
+      margin-top: 1em; }
+  #comparables .Rtable .Rtable > div:nth-child(3).subject {
+    display: none; }
+  #comparables .Rtable--collapse {
+    display: block; }
+    #comparables .Rtable--collapse > .Rtable-cell {
+      width: 100% !important; }
+    #comparables .Rtable--collapse > .Rtable-cell--foot {
+      margin-bottom: 1em; } }
+@media screen and (max-width: 720px) {
+  #title_area::before {
+    content: "720px";
+    color: green; }
+
+  .form-title h1 {
+    font-size: 24px; }
+
+  #reference_number {
+    width: 9em; }
+
+  #client_city, #appraiser_city {
+    width: 100%; }
+
+  #property div:nth-child(4),
+  #property div:nth-child(5),
+  #property div:nth-child(7),
+  #property div:nth-child(15) {
+    flex-wrap: wrap; }
+  #property div:nth-child(6) .input-text {
+    flex-wrap: wrap; }
+    #property div:nth-child(6) .input-text input {
+      margin-left: 1em; }
+  #property div:nth-child(11) {
+    flex-wrap: wrap; }
+    #property div:nth-child(11) label:nth-child(1), #property div:nth-child(11) label:nth-child(2) {
+      margin-right: 5px; }
+    #property div:nth-child(11) label:nth-child(3) {
+      margin-left: 1em; }
+
+  #neighbourhood .report-section-columns-group {
+    display: block; }
+    #neighbourhood .report-section-columns-group > div:nth-child(1) {
+      border-right: none; }
+    #neighbourhood .report-section-columns-group > div:nth-child(2) {
+      margin-left: 0;
+      border-top: 1px solid black;
+      margin-top: 1em; }
+
+  #column1 .form-row .inputs-group div:last-child {
+    width: 100% !important; }
+
+  #site > div:nth-child(1) {
+    display: block;
+    border-bottom: 0; }
+    #site > div:nth-child(1) .report-section-column {
+      margin-left: 0;
+      border-right: 0;
+      width: auto; } }
+@media screen and (max-width: 600px) {
+  #title_area::before {
+    content: "600px";
+    color: red; }
+
+  #property div:nth-child(8) label {
+    white-space: normal; }
+
+  #comparables > div:nth-child(3) {
+    flex-wrap: wrap; }
+    #comparables > div:nth-child(3) label {
+      white-space: normal; } }
+@media screen and (max-width: 480px) {
+  #title_area::before {
+    content: "480px";
+    color: blue; }
+
+  #column2 div:nth-child(3) {
+    flex-wrap: wrap; }
+
+  #neighbourhood > div:last-child .inputs-group {
+    flex-wrap: wrap; }
+  #neighbourhood > div:last-child label {
+    white-space: normal; }
+
+  #comparables .Rtable .Rtable div[class*="comparable"]:before {
+    width: 6em;
+    font-size: 11px;
+    padding-left: 0;
+    white-space: normal; }
+  #comparables .Rtable .Rtable .Rtable-cell.subject > div:first-child {
+    width: 5em; }
+    #comparables .Rtable .Rtable .Rtable-cell.subject > div:first-child label {
+      font-size: 11px;
+      padding-top: 0.1em;
+      white-space: normal; }
+  #comparables .Rtable .Rtable .Rtable-cell:not(.subject) .form-row, #comparables .Rtable .Rtable .Rtable-cell:not(.subject) .labels-group {
+    padding-left: 5.5em; } }
+@media screen and (max-width: 380px) {
+  #title_area::before {
+    content: "380px";
+    color: orange; } }
+@media screen and (max-width: 320px) {
+  #title_area::before {
+    content: "320px";
+    color: gray; } }
+
+/*# sourceMappingURL=newstyle.css.map */
